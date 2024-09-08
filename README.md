@@ -1,1 +1,14 @@
 # Linuxtips course: Container architecture on AWS terraform modules
+
+[LinuxTips](https://linuxtips.io/treinamento/arquitetura-de-containers-na-aws/)
+
+Instructor: [Matheus Fidelis](https://linktr.ee/fidelissauro)
+
+[Main respository](https://github.com/ssorato/linuxtips-aws-container-architecture)
+
+| Terraform module                                                                                    | Module short description        |
+|-----------------------------------------------------------------------------------------------------|---------------------------------|
+| [networking](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/blob/day1)  | Networking infrastructure       |
+| [ecs_ec2](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/blob/day2)     | ECS with EC2 on-demand and spot |
+| [ecs_app](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/blob/day3)     | ECS demo application            |
+| [ecs_service](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/blob/day3) | ECS service with task           |
