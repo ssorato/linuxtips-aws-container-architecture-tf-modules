@@ -1,0 +1,14 @@
+formatter: "" # this is required
+
+version: ""
+
+header-from: ".header.md"
+footer-from: ""
+
+recursive:
+  enabled: true
+  path: .
+  include-main: true
+
+output:
+  file: "./README.md"
