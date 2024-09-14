@@ -47,7 +47,7 @@ resource "aws_appautoscaling_policy" "cpu_low" {
     metric_aggregation_type = var.cloudwatch_scale.in_statistic
 
     step_adjustment {
-      metric_interval_lower_bound = 0
+      metric_interval_upper_bound = 0
       scaling_adjustment          = var.cloudwatch_scale.in_adjustment
     }
 
