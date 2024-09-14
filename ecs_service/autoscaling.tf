@@ -37,7 +37,7 @@ resource "aws_appautoscaling_policy" "cpu_low" {
   service_namespace  = aws_appautoscaling_target.ecs.service_namespace
   scalable_dimension = aws_appautoscaling_target.ecs.scalable_dimension
 
-  name = format("%s-%s-cpu-scale-out", var.project_name, var.ecs_service_name)
+  name = format("%s-%s-cpu-scale-in", var.project_name, var.ecs_service_name)
 
   policy_type = "StepScaling"
 
