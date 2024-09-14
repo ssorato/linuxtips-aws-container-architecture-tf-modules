@@ -4,7 +4,7 @@ variable "common_tags" {
   default = {
     created_by = "terraform-linuxtips-aws-container-architecture"
     sandbox    = "linuxtips"
-    day        = "day3"
+    day        = "day4"
   }
 }
 
