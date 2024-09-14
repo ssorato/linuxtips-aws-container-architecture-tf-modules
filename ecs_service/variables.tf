@@ -101,3 +101,60 @@ variable "service_listener_arn" {
   type        = string
   description = "ALB listner arn used by the ECS service"
 }
+
+variable "common_scale" {
+  type = object({
+    scale_type   = string
+    task_maximum = number
+    task_minimum = number
+    task_desired = number
+    in_cooldown  = number
+    out_cooldown = number
+  })
+  description = <<EOT
+    Common scale parameters:
+    scale_type: the type of autoscaling (cpu, cpu_tracking or requests_tracking)
+    task_maximum: maximum number of tasks 
+    task_minimum: minimum number of tasks 
+    task_desired: desired number of tasks 
+    (in|out)_cooldown: amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start
+  EOT
+  validation {
+    condition     = var.scale_type == "cpu" || scale_type == "cpu_tracking" || scale_type == "requests_tracking"
+    error_message = "Scale type can be cpu or cpu_tracking or requests_tracking"
+  }
+  validation {
+    condition     = var.task_maximum >= var.task_minimum
+    error_message = "The maximum number of tasks must be greater than or equal to the minimum number"
+  }
+  validation {
+    condition     = var.task_desired >= var.task_minimum && var.task_desired <= var.task_maximum
+    error_message = "The number of desired tasks must be between the minimum and maximum number"
+  }
+}
+
+variable "cloudwatch_scale" {
+  type = object({
+    out_statistic           = string
+    out_cpu_threshold       = number
+    out_adjustment          = number
+    out_comparison_operator = string
+    out_period              = number
+    out_evaluation_periods  = number
+    in_statistic            = string
+    in_cpu_threshold        = number
+    in_adjustment           = number
+    in_comparison_operator  = string
+    in_period               = number
+    in_evaluation_periods   = number
+  })
+  description = <<EOT
+    Cloudwatch scale parameters:
+    (in|out)_statistic: the statistic to apply to the alarm's associated metric
+    (in|out)__cpu_threshold: the value against which the specified statistic is compared
+    (in|out)__adjustment: number of members by which to scale, when the adjustment bounds are breached
+    (in|out)__comparison_operator: the arithmetic operation to use when comparing the specified Statistic and Threshold
+    (in|out)__period: the period in seconds over which the specified statistic is applied
+    (in|out)__evaluation_periods: the number of periods over which data is compared to the specified threshold
+  EOT
+}

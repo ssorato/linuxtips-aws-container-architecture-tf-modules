@@ -2,7 +2,7 @@ resource "aws_ecs_service" "main" {
   name            = var.ecs_service_name
   cluster         = var.ecs_name
   task_definition = aws_ecs_task_definition.main.arn
-  desired_count   = var.service_task_count
+  desired_count   = var.common_scale.task_desired
   launch_type     = var.service_launch_type
 
   deployment_maximum_percent         = 200

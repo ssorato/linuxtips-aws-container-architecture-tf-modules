@@ -20,4 +20,6 @@ module "ecs_app" {
   service_task_count              = var.ecs_service.service_task_count
   service_hosts                   = var.ecs_service.service_hosts
   service_listener_arn            = data.aws_ssm_parameter.alb_listener_arn.value
+  common_scale                    = var.common_scale
+  cloudwatch_scale                = var.cloudwatch_scale
 }

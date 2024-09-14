@@ -58,3 +58,33 @@ variable "ssm_alb_listener_arn" {
   type        = string
   description = "The ALB listernet arn from AWS Systems Manager Parameter Store"
 }
+
+variable "common_scale" {
+  type = object({
+    scale_type   = string
+    task_maximum = number
+    task_minimum = number
+    task_desired = number
+    in_cooldown  = number
+    out_cooldown = number
+  })
+  description = "Common scale parameters"
+}
+
+variable "cloudwatch_scale" {
+  type = object({
+    out_statistic           = string
+    out_cpu_threshold       = number
+    out_adjustment          = number
+    out_comparison_operator = string
+    out_period              = number
+    out_evaluation_periods  = number
+    in_statistic            = string
+    in_cpu_threshold        = number
+    in_adjustment           = number
+    in_comparison_operator  = string
+    in_period               = number
+    in_evaluation_periods   = number
+  })
+  description = "Cloudwatch scale parameters"
+}
