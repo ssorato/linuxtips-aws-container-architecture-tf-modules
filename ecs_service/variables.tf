@@ -151,10 +151,10 @@ variable "cloudwatch_scale" {
   description = <<EOT
     Cloudwatch scale parameters:
     (in|out)_statistic: the statistic to apply to the alarm's associated metric
-    (in|out)__cpu_threshold: the value against which the specified statistic is compared
-    (in|out)__adjustment: number of members by which to scale, when the adjustment bounds are breached
-    (in|out)__comparison_operator: the arithmetic operation to use when comparing the specified Statistic and Threshold
-    (in|out)__period: the period in seconds over which the specified statistic is applied
-    (in|out)__evaluation_periods: the number of periods over which data is compared to the specified threshold
+    (in|out)_cpu_threshold: the value against which the specified statistic is compared
+    (in|out)_adjustment: number of members by which to scale, when the adjustment bounds are breached
+    (in|out)_comparison_operator: the arithmetic operation to use when comparing the specified Statistic and Threshold
+    (in|out)_period: the period in seconds over which the specified statistic is applied
+    (in|out)_evaluation_periods: the number of periods over which data is compared to the specified threshold
   EOT
 }

@@ -34,4 +34,11 @@ resource "aws_ecs_service" "main" {
     ]
   }
 
+  tags = merge(
+    {
+      Name = var.ecs_service_name
+    },
+    var.common_tags
+  )
+
 }
