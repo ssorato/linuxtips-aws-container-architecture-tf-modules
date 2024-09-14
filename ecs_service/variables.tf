@@ -120,15 +120,15 @@ variable "common_scale" {
     (in|out)_cooldown: amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start
   EOT
   validation {
-    condition     = var.scale_type == "cpu" || scale_type == "cpu_tracking" || scale_type == "requests_tracking"
+    condition     = var.common_scale.scale_type == "cpu" || var.common_scale.scale_type == "cpu_tracking" || var.common_scale.scale_type == "requests_tracking"
     error_message = "Scale type can be cpu or cpu_tracking or requests_tracking"
   }
   validation {
-    condition     = var.task_maximum >= var.task_minimum
+    condition     = var.common_scale.task_maximum >= var.common_scale.task_minimum
     error_message = "The maximum number of tasks must be greater than or equal to the minimum number"
   }
   validation {
-    condition     = var.task_desired >= var.task_minimum && var.task_desired <= var.task_maximum
+    condition     = var.common_scale.task_desired >= var.common_scale.task_minimum && var.common_scale.task_desired <= var.common_scale.task_maximum
     error_message = "The number of desired tasks must be between the minimum and maximum number"
   }
 }
