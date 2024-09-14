@@ -25,7 +25,7 @@ resource "aws_appautoscaling_policy" "cpu_high" {
 
     step_adjustment {
       metric_interval_lower_bound = 0
-      scaling_adjustment          = var.common_scale.out_adjustment
+      scaling_adjustment          = var.cloudwatch_scale.out_adjustment
     }
   }
 }
@@ -53,12 +53,12 @@ resource "aws_appautoscaling_policy" "cpu_low" {
 
     step_adjustment {
       metric_interval_lower_bound = 0
-      metric_interval_upper_bound = var.common_scale.in_cpu_threshold
-      scaling_adjustment          = var.common_scale.in_adjustment
+      metric_interval_upper_bound = var.cloudwatch_scale.in_cpu_threshold
+      scaling_adjustment          = var.cloudwatch_scale.in_adjustment
     }
 
     step_adjustment {
-      metric_interval_lower_bound = var.common_scale.in_cpu_threshold
+      metric_interval_lower_bound = var.cloudwatch_scale.in_cpu_threshold
       scaling_adjustment          = 0
     }
   }
