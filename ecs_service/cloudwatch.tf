@@ -44,9 +44,9 @@ resource "aws_cloudwatch_metric_alarm" "cpu_high" {
 resource "aws_cloudwatch_metric_alarm" "cpu_low" {
   count = var.common_scale.scale_type == "cpu" ? 1 : 0
 
-  alarm_name = format("ecs-%s-%s-cpu-scale-out", var.project_name, var.ecs_service_name)
+  alarm_name = format("ecs-%s-%s-cpu-scale-in", var.project_name, var.ecs_service_name)
 
-  comparison_operator = var.cloudwatch_scale.out_comparison_operator
+  comparison_operator = var.cloudwatch_scale.in_comparison_operator
 
   metric_name = "CPUUtilization"
   namespace   = "AWS/ECS"
