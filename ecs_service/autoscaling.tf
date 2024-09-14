@@ -48,7 +48,7 @@ resource "aws_appautoscaling_policy" "cpu_low" {
 
     step_adjustment {
       metric_interval_lower_bound = 0
-      scaling_adjustment          = var.common_scale.in_adjustment
+      scaling_adjustment          = var.cloudwatch_scale.in_adjustment
     }
 
     step_adjustment {
