@@ -91,9 +91,9 @@ resource "aws_appautoscaling_policy" "target_tracking_requests" {
 
   name = format("%s-%s-requests-tracking", var.project_name, var.ecs_service_name)
 
-  resource_id        = aws_appautoscaling_target.main.resource_id
-  service_namespace  = aws_appautoscaling_target.main.service_namespace
-  scalable_dimension = aws_appautoscaling_target.main.scalable_dimension
+  resource_id        = aws_appautoscaling_target.ecs.resource_id
+  service_namespace  = aws_appautoscaling_target.ecs.service_namespace
+  scalable_dimension = aws_appautoscaling_target.ecs.scalable_dimension
 
   policy_type = "TargetTrackingScaling"
 
