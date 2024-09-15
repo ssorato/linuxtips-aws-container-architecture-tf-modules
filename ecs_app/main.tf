@@ -17,7 +17,6 @@ module "ecs_app" {
   project_name                    = var.project_name
   aws_region                      = var.aws_region
   service_launch_type             = var.ecs_service.service_launch_type
-  service_task_count              = var.ecs_service.service_task_count
   service_hosts                   = var.ecs_service.service_hosts
   service_listener_arn            = data.aws_ssm_parameter.alb_listener_arn.value
   common_scale                    = var.common_scale

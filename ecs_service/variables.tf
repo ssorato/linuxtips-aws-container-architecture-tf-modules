@@ -87,11 +87,6 @@ variable "service_launch_type" {
   description = "Launch Types about capacity providers available in the cluster"
 }
 
-variable "service_task_count" {
-  type        = number
-  description = "Amount of tasks in the service"
-}
-
 variable "service_hosts" {
   type        = list(string)
   description = "Hosts associated to the service ( dns name )"

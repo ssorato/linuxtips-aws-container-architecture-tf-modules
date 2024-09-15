@@ -34,7 +34,6 @@ variable "ecs_service" {
     capabilities        = list(string)
     service_healthcheck = map(any)
     service_launch_type = string
-    service_task_count  = number
     service_hosts       = list(string)
   })
   description = "ECS service"
