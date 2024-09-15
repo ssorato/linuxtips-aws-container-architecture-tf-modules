@@ -23,5 +23,4 @@ module "ecs_service" {
   cloudwatch_scale                = var.cloudwatch_scale
   tracking_scale_cpu              = var.tracking_scale_cpu
   tracking_scale_requests         = var.tracking_scale_requests
-  alb_arn                         = var.alb_arn
 }
