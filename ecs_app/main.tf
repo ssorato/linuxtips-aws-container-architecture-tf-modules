@@ -1,4 +1,4 @@
-module "ecs_app" {
+module "ecs_service" {
   source = "../ecs_service"
 
   ecs_service_name                = var.ecs_service.name

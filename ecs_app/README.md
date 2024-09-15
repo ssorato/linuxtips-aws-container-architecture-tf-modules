@@ -17,7 +17,7 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_ecs_app"></a> [ecs\_app](#module\_ecs\_app) | ../ecs_service | n/a |
+| <a name="module_ecs_service"></a> [ecs\_service](#module\_ecs\_service) | ../ecs_service | n/a |
 
 ## Resources
 
@@ -45,5 +45,7 @@ No requirements.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_ecr_repo_url"></a> [ecr\_repo\_url](#output\_ecr\_repo\_url) | The URL of the ECR repository |
 <!-- END_TF_DOCS -->
