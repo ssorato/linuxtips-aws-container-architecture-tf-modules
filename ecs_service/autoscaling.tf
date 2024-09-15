@@ -76,7 +76,7 @@ resource "aws_appautoscaling_policy" "target_tracking_cpu" {
   policy_type = "TargetTrackingScaling"
 
   target_tracking_scaling_policy_configuration {
-    target_value       = var.tracking_scale.cpu
+    target_value       = var.tracking_scale_cpu
     scale_in_cooldown  = var.common_scale.in_cooldown
     scale_out_cooldown = var.common_scale.out_cooldown
 
@@ -84,4 +84,29 @@ resource "aws_appautoscaling_policy" "target_tracking_cpu" {
       predefined_metric_type = "ECSServiceAverageCPUUtilization"
     }
   }
+}
+
+resource "aws_appautoscaling_policy" "target_tracking_requests" {
+  count = var.common_scale.scale_type == "requests_tracking" ? 1 : 0
+
+  name = format("%s-%s-requests-tracking", var.project_name, var.ecs_service_name)
+
+  resource_id        = aws_appautoscaling_target.main.resource_id
+  service_namespace  = aws_appautoscaling_target.main.service_namespace
+  scalable_dimension = aws_appautoscaling_target.main.scalable_dimension
+
+  policy_type = "TargetTrackingScaling"
+
+  target_tracking_scaling_policy_configuration {
+    target_value       = var.tracking_scale_requests
+    scale_in_cooldown  = var.common_scale.in_cooldown
+    scale_out_cooldown = var.common_scale.out_cooldown
+
+    predefined_metric_specification {
+      predefined_metric_type = "ALBRequestCountPerTarget"
+      resource_label         = "${data.aws_alb.main.arn_suffix}/${aws_alb_target_group.main.arn_suffix}"
+    }
+
+  }
+
 }

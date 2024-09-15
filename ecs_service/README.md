@@ -27,6 +27,7 @@ No modules.
 | [aws_appautoscaling_policy.cpu_high](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/appautoscaling_policy) | resource |
 | [aws_appautoscaling_policy.cpu_low](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/appautoscaling_policy) | resource |
 | [aws_appautoscaling_policy.target_tracking_cpu](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/appautoscaling_policy) | resource |
+| [aws_appautoscaling_policy.target_tracking_requests](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/appautoscaling_policy) | resource |
 | [aws_appautoscaling_target.ecs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/appautoscaling_target) | resource |
 | [aws_cloudwatch_log_group.main](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_group) | resource |
 | [aws_cloudwatch_metric_alarm.cpu_high](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm) | resource |
@@ -38,11 +39,13 @@ No modules.
 | [aws_iam_role_policy.service_execution_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy) | resource |
 | [aws_security_group.main](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group) | resource |
 | [random_string.random](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string) | resource |
+| [aws_alb.main](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/alb) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_alb_arn"></a> [alb\_arn](#input\_alb\_arn) | Application Load Balancer arn, used to tracking requests | `string` | `null` | no |
 | <a name="input_alb_listener_arn"></a> [alb\_listener\_arn](#input\_alb\_listener\_arn) | The ALB listener arn | `string` | n/a | yes |
 | <a name="input_aws_region"></a> [aws\_region](#input\_aws\_region) | The AWS region | `string` | n/a | yes |
 | <a name="input_capabilities"></a> [capabilities](#input\_capabilities) | Capacity list like EC2 or FARGATE | `list(string)` | `[]` | no |
@@ -62,7 +65,8 @@ No modules.
 | <a name="input_service_launch_type"></a> [service\_launch\_type](#input\_service\_launch\_type) | Launch Types about capacity providers available in the cluster | `string` | n/a | yes |
 | <a name="input_service_listener_arn"></a> [service\_listener\_arn](#input\_service\_listener\_arn) | ALB listner arn used by the ECS service | `string` | n/a | yes |
 | <a name="input_service_task_execution_role_arn"></a> [service\_task\_execution\_role\_arn](#input\_service\_task\_execution\_role\_arn) | The IAM task execution role arn | `string` | n/a | yes |
-| <a name="input_tracking_scale"></a> [tracking\_scale](#input\_tracking\_scale) | Tracking scale parameters:<br>    cpu: target value for the metric | <pre>object({<br>    cpu       = number<br>  })</pre> | n/a | yes |
+| <a name="input_tracking_scale_cpu"></a> [tracking\_scale\_cpu](#input\_tracking\_scale\_cpu) | Tracking scale using CPU percentage for the metric | `number` | n/a | yes |
+| <a name="input_tracking_scale_requests"></a> [tracking\_scale\_requests](#input\_tracking\_scale\_requests) | Tracking scale using number of requests for the metric | `number` | n/a | yes |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | The VPC id | `string` | n/a | yes |
 
 ## Outputs

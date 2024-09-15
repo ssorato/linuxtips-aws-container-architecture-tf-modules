@@ -154,12 +154,18 @@ variable "cloudwatch_scale" {
   EOT
 }
 
-variable "tracking_scale" {
-  type = object({
-    cpu = number
-  })
-  description = <<EOT
-    Tracking scale parameters:
-    cpu: target value for the metric
-  EOT
+variable "tracking_scale_cpu" {
+  type        = number
+  description = "Tracking scale using CPU percentage for the metric"
+}
+
+variable "tracking_scale_requests" {
+  type        = number
+  description = "Tracking scale using number of requests for the metric"
+}
+
+variable "alb_arn" {
+  type        = string
+  description = "Application Load Balancer arn, used to tracking requests"
+  default     = null
 }
