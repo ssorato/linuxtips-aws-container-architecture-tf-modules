@@ -153,3 +153,13 @@ variable "cloudwatch_scale" {
     (in|out)_evaluation_periods: the number of periods over which data is compared to the specified threshold
   EOT
 }
+
+variable "tracking_scale" {
+  type = object({
+    cpu = number
+  })
+  description = <<EOT
+    Tracking scale parameters:
+    cpu: target value for the metric
+  EOT
+}
