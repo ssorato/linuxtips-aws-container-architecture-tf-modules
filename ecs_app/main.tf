@@ -21,4 +21,5 @@ module "ecs_service" {
   service_listener_arn            = data.aws_ssm_parameter.alb_listener_arn.value
   common_scale                    = var.common_scale
   cloudwatch_scale                = var.cloudwatch_scale
+  tracking_scale                  = var.tracking_scale
 }

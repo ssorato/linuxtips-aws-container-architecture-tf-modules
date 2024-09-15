@@ -87,3 +87,9 @@ variable "cloudwatch_scale" {
   })
   description = "Cloudwatch scale parameters"
 }
+
+variable "tracking_scale" {
+  type = object({
+    cpu = number
+  })
+}
