@@ -10,3 +10,7 @@ data "aws_ssm_parameter" "private_subnet" {
 data "aws_ssm_parameter" "alb_listener_arn" {
   name = var.ssm_alb_listener_arn
 }
+
+data "aws_ssm_parameter" "alb_arn" {
+  name = var.ssm_alb_arn
+}

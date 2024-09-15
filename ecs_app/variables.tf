@@ -58,6 +58,11 @@ variable "ssm_alb_listener_arn" {
   description = "The ALB listernet arn from AWS Systems Manager Parameter Store"
 }
 
+variable "ssm_alb_arn" {
+  type        = string
+  description = "The ALB arn from AWS Systems Manager Parameter Store"
+}
+
 variable "common_scale" {
   type = object({
     scale_type   = string

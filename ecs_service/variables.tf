@@ -163,3 +163,8 @@ variable "tracking_scale_requests" {
   type        = number
   description = "Tracking scale using number of requests for the metric"
 }
+
+variable "alb_arn" {
+  type        = string
+  description = "The ALB arn used by the ECS"
+}
