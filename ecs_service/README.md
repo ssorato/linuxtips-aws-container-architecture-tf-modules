@@ -1,7 +1,7 @@
 <!-- BEGIN_TF_DOCS -->
 # Linuxtips course: Container architecture on AWS terraform modules
 
-Day 4: ECS service with Autoscaling
+Day 5: ECS service with task
 
 ## Requirements
 
@@ -48,7 +48,7 @@ No modules.
 | <a name="input_alb_arn"></a> [alb\_arn](#input\_alb\_arn) | The ALB arn used by the ECS | `string` | n/a | yes |
 | <a name="input_alb_listener_arn"></a> [alb\_listener\_arn](#input\_alb\_listener\_arn) | The ALB listener arn | `string` | n/a | yes |
 | <a name="input_aws_region"></a> [aws\_region](#input\_aws\_region) | The AWS region | `string` | n/a | yes |
-| <a name="input_capabilities"></a> [capabilities](#input\_capabilities) | Capacity list like EC2 or FARGATE | `list(string)` | `[]` | no |
+| <a name="input_capabilities"></a> [capabilities](#input\_capabilities) | Capacity list like EC2 or FARGATE | `list(string)` | <pre>[<br>  "EC2"<br>]</pre> | no |
 | <a name="input_cloudwatch_scale"></a> [cloudwatch\_scale](#input\_cloudwatch\_scale) | Cloudwatch scale parameters:<br>    (in\|out)\_statistic: the statistic to apply to the alarm's associated metric<br>    (in\|out)\_cpu\_threshold: the value against which the specified statistic is compared<br>    (in\|out)\_adjustment: number of members by which to scale, when the adjustment bounds are breached<br>    (in\|out)\_comparison\_operator: the arithmetic operation to use when comparing the specified Statistic and Threshold<br>    (in\|out)\_period: the period in seconds over which the specified statistic is applied<br>    (in\|out)\_evaluation\_periods: the number of periods over which data is compared to the specified threshold | <pre>object({<br>    out_statistic           = string<br>    out_cpu_threshold       = number<br>    out_adjustment          = number<br>    out_comparison_operator = string<br>    out_period              = number<br>    out_evaluation_periods  = number<br>    in_statistic            = string<br>    in_cpu_threshold        = number<br>    in_adjustment           = number<br>    in_comparison_operator  = string<br>    in_period               = number<br>    in_evaluation_periods   = number<br>  })</pre> | n/a | yes |
 | <a name="input_common_scale"></a> [common\_scale](#input\_common\_scale) | Common scale parameters:<br>    scale\_type: the type of autoscaling (cpu, cpu\_tracking or requests\_tracking)<br>    task\_maximum: maximum number of tasks <br>    task\_minimum: minimum number of tasks <br>    task\_desired: desired number of tasks <br>    (in\|out)\_cooldown: amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start | <pre>object({<br>    scale_type   = string<br>    task_maximum = number<br>    task_minimum = number<br>    task_desired = number<br>    in_cooldown  = number<br>    out_cooldown = number<br>  })</pre> | n/a | yes |
 | <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | Common tags | `map(string)` | n/a | yes |

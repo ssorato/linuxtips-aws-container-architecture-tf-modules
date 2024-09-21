@@ -74,7 +74,7 @@ variable "environment_variables" {
 variable "capabilities" {
   type        = list(string)
   description = "Capacity list like EC2 or FARGATE"
-  default     = []
+  default     = ["EC2"]
 }
 
 variable "service_healthcheck" {
@@ -85,6 +85,10 @@ variable "service_healthcheck" {
 variable "service_launch_type" {
   type        = string
   description = "Launch Types about capacity providers available in the cluster"
+  validation {
+    condition     = contains(["EC2", "FARGATE"], var.service_launch_type)
+    error_message = "Launch Type can be EC2 or FARGATE"
+  }
 }
 
 variable "service_hosts" {
