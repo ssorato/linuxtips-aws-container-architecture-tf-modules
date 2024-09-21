@@ -33,7 +33,10 @@ variable "ecs_service" {
     }))
     capabilities        = list(string)
     service_healthcheck = map(any)
-    service_launch_type = string
+    service_launch_type = list(object({
+      capacity_provider = string
+      weight            = number
+    }))
     service_hosts       = list(string)
   })
   description = "ECS service"

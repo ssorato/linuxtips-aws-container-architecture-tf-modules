@@ -63,3 +63,9 @@ variable "alb_ingress_cidr_enabled" {
     error_message = "Needs at least one CIDR"
   }
 }
+
+variable "capacity_providers" {
+  type = list(string)
+  description = "A list of capacity providers used by ECS with Fargate"
+  default = [ "FARGATE", "FARGATE_SPOT" ]
+}

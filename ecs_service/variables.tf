@@ -83,12 +83,15 @@ variable "service_healthcheck" {
 }
 
 variable "service_launch_type" {
-  type        = string
+  type = list(object({
+    capacity_provider = string
+    weight            = number
+  }))
   description = "Launch Types about capacity providers available in the cluster"
-  validation {
-    condition     = contains(["EC2", "FARGATE"], var.service_launch_type)
-    error_message = "Launch Type can be EC2 or FARGATE"
-  }
+  default = [{
+    capacity_provider = "SPOT"
+    weight            = 100
+  }]
 }
 
 variable "service_hosts" {
