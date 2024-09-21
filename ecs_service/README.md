@@ -62,7 +62,7 @@ No modules.
 | <a name="input_project_name"></a> [project\_name](#input\_project\_name) | The resource name sufix | `string` | n/a | yes |
 | <a name="input_service_healthcheck"></a> [service\_healthcheck](#input\_service\_healthcheck) | ECS service healthcheck parameters | `map(any)` | n/a | yes |
 | <a name="input_service_hosts"></a> [service\_hosts](#input\_service\_hosts) | Hosts associated to the service ( dns name ) | `list(string)` | n/a | yes |
-| <a name="input_service_launch_type"></a> [service\_launch\_type](#input\_service\_launch\_type) | Launch Types about capacity providers available in the cluster | `string` | n/a | yes |
+| <a name="input_service_launch_type"></a> [service\_launch\_type](#input\_service\_launch\_type) | Launch Types about capacity providers available in the cluster | <pre>list(object({<br>    capacity_provider = string<br>    weight            = number<br>  }))</pre> | <pre>[<br>  {<br>    "capacity_provider": "SPOT",<br>    "weight": 100<br>  }<br>]</pre> | no |
 | <a name="input_service_listener_arn"></a> [service\_listener\_arn](#input\_service\_listener\_arn) | ALB listner arn used by the ECS service | `string` | n/a | yes |
 | <a name="input_service_task_execution_role_arn"></a> [service\_task\_execution\_role\_arn](#input\_service\_task\_execution\_role\_arn) | The IAM task execution role arn | `string` | n/a | yes |
 | <a name="input_tracking_scale_cpu"></a> [tracking\_scale\_cpu](#input\_tracking\_scale\_cpu) | Tracking scale using CPU percentage for the metric | `number` | n/a | yes |

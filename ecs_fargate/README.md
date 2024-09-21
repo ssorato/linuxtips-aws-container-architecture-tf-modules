@@ -22,6 +22,7 @@ No modules.
 | Name | Type |
 |------|------|
 | [aws_ecs_cluster.main](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_cluster) | resource |
+| [aws_ecs_cluster_capacity_providers.main](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_cluster_capacity_providers) | resource |
 | [aws_iam_instance_profile.ecs_asg_instance_profile](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_instance_profile) | resource |
 | [aws_iam_role.ecs_asg_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role) | resource |
 | [aws_iam_role_policy_attachment.ec2_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
@@ -46,6 +47,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_alb_ingress_cidr_enabled"></a> [alb\_ingress\_cidr\_enabled](#input\_alb\_ingress\_cidr\_enabled) | A list of CIDR enabled to access the ALB | `list(string)` | <pre>[<br>  "0.0.0.0/0"<br>]</pre> | no |
 | <a name="input_aws_region"></a> [aws\_region](#input\_aws\_region) | The AWS region | `string` | `"us-east-1"` | no |
+| <a name="input_capacity_providers"></a> [capacity\_providers](#input\_capacity\_providers) | A list of capacity providers used by ECS with Fargate | `list(string)` | <pre>[<br>  "FARGATE",<br>  "FARGATE_SPOT"<br>]</pre> | no |
 | <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | Common tags | `map(string)` | <pre>{<br>  "created_by": "terraform-linuxtips-aws-container-architecture",<br>  "day": "day5",<br>  "sandbox": "linuxtips"<br>}</pre> | no |
 | <a name="input_project_name"></a> [project\_name](#input\_project\_name) | The resource name sufix | `string` | `"linuxtips"` | no |
 | <a name="input_ssm_private_subnet_list"></a> [ssm\_private\_subnet\_list](#input\_ssm\_private\_subnet\_list) | A list of private subnet id in the AWS Systems Manager Parameter Store | `list(string)` | <pre>[<br>  "/linuxtips/vpc/subnet_private_us_east_1a_id",<br>  "/linuxtips/vpc/subnet_private_us_east_1b_id",<br>  "/linuxtips/vpc/subnet_private_us_east_1c_id"<br>]</pre> | no |
