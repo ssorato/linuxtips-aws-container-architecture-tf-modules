@@ -4,7 +4,7 @@ variable "common_tags" {
   default = {
     created_by = "terraform-linuxtips-aws-container-architecture"
     sandbox    = "linuxtips"
-    day        = "day2"
+    day        = "day5"
   }
 }
 
@@ -62,25 +62,4 @@ variable "alb_ingress_cidr_enabled" {
     condition     = length(var.alb_ingress_cidr_enabled) > 0
     error_message = "Needs at least one CIDR"
   }
-}
-
-variable "ecs" {
-  type = object({
-    nodes_ami           = string
-    node_instance_type  = string
-    node_volume_size_gb = number
-    node_volume_type    = optional(string, "gp3")
-    on_demand = object({
-      desired_size = number
-      min_size     = number
-      max_size     = number
-    })
-    spot = object({
-      desired_size = number
-      min_size     = number
-      max_size     = number
-      max_price    = string
-    })
-  })
-  description = "ECS sizing"
 }
