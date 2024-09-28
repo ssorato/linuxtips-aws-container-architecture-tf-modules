@@ -13,3 +13,4 @@ Instructor: [Matheus Fidelis](https://linktr.ee/fidelissauro)
 | [ecs_app](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day3/ecs_app/README.md)         | ECS demo application            |
 | [ecs_service](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/blob/day3/ecs_service/README.md) | ECS service with task           |
 | [ecs_service](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/blob/day4/ecs_service/README.md) | ECS service with autoscaling    |
+| [ecs_fargate](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/blob/day5/ecs_fargate/README.md) | ECS cluster with only Fargate   |
