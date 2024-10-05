@@ -175,3 +175,8 @@ variable "alb_arn" {
   type        = string
   description = "The ALB arn used by the ECS"
 }
+
+variable "container_image" {
+  type = string
+  description = "The container image used by ECS application"
+}

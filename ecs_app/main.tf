@@ -24,4 +24,5 @@ module "ecs_service" {
   tracking_scale_cpu              = var.tracking_scale_cpu
   tracking_scale_requests         = var.tracking_scale_requests
   alb_arn                         = data.aws_ssm_parameter.alb_arn.value
+  container_image                 = var.container_image
 }

@@ -105,3 +105,8 @@ variable "tracking_scale_requests" {
   type        = number
   description = "Tracking scale using number of requests for the metric"
 }
+
+variable "container_image" {
+  type = string
+  description = "The container image used by ECS application"
+}
