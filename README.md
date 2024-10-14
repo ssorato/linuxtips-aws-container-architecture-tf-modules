@@ -1,20 +1,8 @@
 # Linuxtips course: Container architecture on AWS terraform modules
 
-[LinuxTips](https://linuxtips.io/treinamento/arquitetura-de-containers-na-aws/)
-
-Instructor: [Matheus Fidelis](https://linktr.ee/fidelissauro)
-
 [Main respository](https://github.com/ssorato/linuxtips-aws-container-architecture)
 
-| Terraform module                                                                                                          | Module short description              |
-|---------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
-| [networking](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day1/README.md)              | Networking infrastructure             |
-| [ecs_ec2](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day2/README.md)                 | ECS with EC2 on-demand and spot       |
-| [ecs_app](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day3/ecs_app/README.md)         | ECS demo application                  |
-| [ecs_service](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day3/ecs_service/README.md) | ECS service with task                 |
-| [ecs_service](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day4/ecs_service/README.md) | ECS service with autoscaling          |
-| [ecs_fargate](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day5/ecs_fargate/README.md) | ECS cluster with only Fargate         |
-| [ecs_app](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day6/ecs_app/README.md)         | ECS demo application used by CI/CD    |
-| [ecs_service](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day6/ecs_service/README.md) | ECS service used by CI/CD             |
-| [ecs_app](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day7/ecs_app/README.md)         | ECS demo application with EFS         |
-| [ecs_service](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day7/ecs_service/README.md) | ECS service with EFS                  |
+| Module                               | Description                                               |
+|--------------------------------------|-----------------------------------------------------------|
+| [ecs_app](ecs_app/README.md)         | ECS application with Parameters Store and Secrets Manager |
+| [ecs_service](ecs_service/README.md) | ECS service with Parameters Store and Secrets Manager     |
