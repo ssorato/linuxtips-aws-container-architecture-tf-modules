@@ -1,7 +1,7 @@
 <!-- BEGIN_TF_DOCS -->
 # Linuxtips course: Container architecture on AWS terraform modules
 
-Day 5: ECS service with task
+Day 6: ECS service used by CI/CD
 
 ## Requirements
 
