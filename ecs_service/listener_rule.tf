@@ -1,5 +1,5 @@
 resource "aws_alb_listener_rule" "main" {
-  listener_arn = var.service_listener_arn
+  listener_arn = var.alb_listener_arn
 
   action {
     type             = "forward"

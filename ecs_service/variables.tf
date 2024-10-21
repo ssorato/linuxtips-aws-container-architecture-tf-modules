@@ -108,19 +108,14 @@ variable "service_hosts" {
   description = "Hosts associated to the service ( dns name )"
 }
 
-variable "service_listener_arn" {
-  type        = string
-  description = "ALB listner arn used by the ECS service"
-}
-
 variable "common_scale" {
   type = object({
     scale_type   = optional(string, null)
     task_maximum = number
     task_minimum = number
     task_desired = number
-    in_cooldown  = number
-    out_cooldown = number
+    in_cooldown  = optional(number, null)
+    out_cooldown = optional(number, null)
   })
   description = <<EOT
     Common scale parameters:
@@ -168,6 +163,20 @@ variable "cloudwatch_scale" {
     (in|out)_period: the period in seconds over which the specified statistic is applied
     (in|out)_evaluation_periods: the number of periods over which data is compared to the specified threshold
   EOT
+  default     = {
+    out_statistic           = null
+    out_cpu_threshold       = null
+    out_adjustment          = null
+    out_comparison_operator = null
+    out_period              = null
+    out_evaluation_periods  = null
+    in_statistic            = null
+    in_cpu_threshold        = null
+    in_adjustment           = null
+    in_comparison_operator  = null
+    in_period               = null
+    in_evaluation_periods   = null
+  }
 }
 
 variable "tracking_scale_cpu" {
