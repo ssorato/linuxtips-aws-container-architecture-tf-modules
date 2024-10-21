@@ -20,3 +20,5 @@ Instructor: [Matheus Fidelis](https://linktr.ee/fidelissauro)
 | [ecs_service](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day7/ecs_service/README.md) | ECS service with EFS                                          |
 | [ecs_app](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day8/ecs_app/README.md)         | ECS demo application with Parameters Store and Secret Manager |
 | [ecs_service](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day8/ecs_service/README.md) | ECS service with EFS with Parameters Store and Secret Manager |
+| [ecs_fargate](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day9/ecs_fargate/README.md) | ECS with Fargate, internal ALB, Route53 and service discovery |
+| [ecs_service](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day9/ecs_service/README.md) | ECS service with service discovery                            |
