@@ -49,3 +49,16 @@ resource "aws_ssm_parameter" "alb_internal_listener_arn" {
     var.common_tags
   )
 }
+
+resource "aws_ssm_parameter" "cloudmap" {
+  name  = format("/%s/ecs/cloudmap/namespace", var.project_name)
+  value = aws_service_discovery_private_dns_namespace.main.id
+  type  = "String"
+
+  tags = merge(
+    {
+      Name = format("/%s/ecs/cloudmap/namespace", var.project_name)
+    },
+    var.common_tags
+  )
+}

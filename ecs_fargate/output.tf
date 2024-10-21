@@ -25,3 +25,9 @@ output "ssm_alb_internal_listener_arn" {
   description = "AWS SSM parameter store ALB internal listner arn"
   sensitive   = false
 }
+
+output "ssm_cloudmap" {
+  value       = aws_ssm_parameter.cloudmap.id
+  description = "AWS SSM parameter store Service Discovery Namespace id"
+  sensitive   = false
+}
