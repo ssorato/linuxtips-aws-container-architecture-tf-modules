@@ -61,14 +61,19 @@ No modules.
 | <a name="input_environment_variables"></a> [environment\_variables](#input\_environment\_variables) | Environment variables used by ECS service | <pre>list(object({<br>    name : string<br>    value : string<br>  }))</pre> | `[]` | no |
 | <a name="input_private_subnets"></a> [private\_subnets](#input\_private\_subnets) | The private subnet list | `list(string)` | n/a | yes |
 | <a name="input_project_name"></a> [project\_name](#input\_project\_name) | The resource name sufix | `string` | n/a | yes |
+| <a name="input_protocol"></a> [protocol](#input\_protocol) | The protocol used for the port mapping | `string` | `"tcp"` | no |
 | <a name="input_secrets"></a> [secrets](#input\_secrets) | Secrets list coming from Secret Manager or Parameter Store | <pre>list(object({<br>    name : string<br>    valueFrom : string # ARN<br>  }))</pre> | `[]` | no |
+| <a name="input_service_connect_arn"></a> [service\_connect\_arn](#input\_service\_connect\_arn) | n/a | `string` | `null` | no |
+| <a name="input_service_connect_name"></a> [service\_connect\_name](#input\_service\_connect\_name) | Namespace name of the aws\_service\_discovery\_http\_namespace for use with Service Connect | `string` | `null` | no |
 | <a name="input_service_discovery_namespace"></a> [service\_discovery\_namespace](#input\_service\_discovery\_namespace) | Service Discovery namespace id | `string` | `null` | no |
 | <a name="input_service_healthcheck"></a> [service\_healthcheck](#input\_service\_healthcheck) | ECS service healthcheck parameters | `map(any)` | n/a | yes |
 | <a name="input_service_hosts"></a> [service\_hosts](#input\_service\_hosts) | Hosts associated to the service ( dns name ) | `list(string)` | n/a | yes |
 | <a name="input_service_launch_type"></a> [service\_launch\_type](#input\_service\_launch\_type) | Launch Types about capacity providers available in the cluster | <pre>list(object({<br>    capacity_provider = string<br>    weight            = number<br>  }))</pre> | <pre>[<br>  {<br>    "capacity_provider": "SPOT",<br>    "weight": 100<br>  }<br>]</pre> | no |
+| <a name="input_service_protocol"></a> [service\_protocol](#input\_service\_protocol) | Service Connect: the application protocol that's used for the port mapping | `string` | `null` | no |
 | <a name="input_service_task_execution_role_arn"></a> [service\_task\_execution\_role\_arn](#input\_service\_task\_execution\_role\_arn) | The IAM task execution role arn | `string` | n/a | yes |
 | <a name="input_tracking_scale_cpu"></a> [tracking\_scale\_cpu](#input\_tracking\_scale\_cpu) | Tracking scale using CPU percentage for the metric | `number` | `null` | no |
 | <a name="input_tracking_scale_requests"></a> [tracking\_scale\_requests](#input\_tracking\_scale\_requests) | Tracking scale using number of requests for the metric | `number` | `null` | no |
+| <a name="input_use_service_connect"></a> [use\_service\_connect](#input\_use\_service\_connect) | Whether to use Service Connect with this service | `bool` | `false` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | The VPC id | `string` | n/a | yes |
 
 ## Outputs
