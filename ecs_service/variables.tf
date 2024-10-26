@@ -195,6 +195,7 @@ variable "tracking_scale_requests" {
 variable "alb_arn" {
   type        = string
   description = "The ALB arn used by the ECS"
+  default     = null
 }
 
 variable "container_image" {
