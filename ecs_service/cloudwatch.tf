@@ -1,5 +1,6 @@
 resource "aws_cloudwatch_log_group" "main" {
-  name = format("%s/%s/logs", var.ecs_name, var.ecs_service_name)
+  name              = format("%s/%s/logs", var.ecs_name, var.ecs_service_name)
+  retention_in_days = var.cloudwatch_log_retention_in_days
 
   tags = merge(
     {

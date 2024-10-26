@@ -163,7 +163,7 @@ variable "cloudwatch_scale" {
     (in|out)_period: the period in seconds over which the specified statistic is applied
     (in|out)_evaluation_periods: the number of periods over which data is compared to the specified threshold
   EOT
-  default     = {
+  default = {
     out_statistic           = null
     out_cpu_threshold       = null
     out_adjustment          = null
@@ -217,4 +217,10 @@ variable "service_discovery_namespace" {
   type        = string
   description = "Service Discovery namespace id"
   default     = null
+}
+
+variable "cloudwatch_log_retention_in_days" {
+  type        = number
+  description = "Specifies the number of days you want to retain log events in the specified log group"
+  default     = 1
 }
