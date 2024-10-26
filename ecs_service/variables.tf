@@ -224,3 +224,37 @@ variable "cloudwatch_log_retention_in_days" {
   description = "Specifies the number of days you want to retain log events in the specified log group"
   default     = 1
 }
+
+# https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PortMapping.html
+variable "service_protocol" {
+  type        = string
+  description = "Service Connect: the application protocol that's used for the port mapping"
+  default     = null
+}
+
+variable "protocol" {
+  type        = string
+  description = "The protocol used for the port mapping"
+  default     = "tcp"
+  validation {
+    condition     = var.protocol == "tcp" || var.protocol == "udp"
+    error_message = "Valid values are tcp and udp"
+  }
+}
+
+variable "use_service_connect" {
+  type        = bool
+  description = "Whether to use Service Connect with this service"
+  default     = false
+}
+
+variable "service_connect_name" {
+  type        = string
+  description = "Namespace name of the aws_service_discovery_http_namespace for use with Service Connect"
+  default     = null
+}
+
+variable "service_connect_arn" {
+  type    = string
+  default = null
+}
