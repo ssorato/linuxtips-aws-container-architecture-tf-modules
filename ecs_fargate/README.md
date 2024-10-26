@@ -42,11 +42,14 @@ No modules.
 | [aws_security_group_rule.ingress_https_internal](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule) | resource |
 | [aws_security_group_rule.vpc_ingress](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule) | resource |
 | [aws_service_discovery_private_dns_namespace.main](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/service_discovery_private_dns_namespace) | resource |
+| [aws_service_discovery_private_dns_namespace.sc](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/service_discovery_private_dns_namespace) | resource |
 | [aws_ssm_parameter.alb_arn](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
 | [aws_ssm_parameter.alb_internal_arn](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
 | [aws_ssm_parameter.alb_internal_listener_arn](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
 | [aws_ssm_parameter.alb_listener_arn](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
 | [aws_ssm_parameter.cloudmap](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
+| [aws_ssm_parameter.service_connect](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
+| [aws_ssm_parameter.service_connect_name](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
 | [aws_ssm_parameter.private_subnet](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
 | [aws_ssm_parameter.public_subnet](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
 | [aws_ssm_parameter.vpc](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
@@ -71,6 +74,8 @@ No modules.
 |------|-------------|
 | <a name="output_ecs_alb_dns_name"></a> [ecs\_alb\_dns\_name](#output\_ecs\_alb\_dns\_name) | The ECS ALB dns name |
 | <a name="output_ecs_alb_internal_dns_name"></a> [ecs\_alb\_internal\_dns\_name](#output\_ecs\_alb\_internal\_dns\_name) | The ECS ALB internal dns name |
+| <a name="output_service_connect_name_ssm"></a> [service\_connect\_name\_ssm](#output\_service\_connect\_name\_ssm) | AWS SSM parameter store Service Connect name |
+| <a name="output_service_connect_ssm"></a> [service\_connect\_ssm](#output\_service\_connect\_ssm) | AWS SSM parameter store Service Connect Namespace id |
 | <a name="output_ssm_alb_arn"></a> [ssm\_alb\_arn](#output\_ssm\_alb\_arn) | AWS SSM parameter store ALB arn |
 | <a name="output_ssm_alb_internal_arn"></a> [ssm\_alb\_internal\_arn](#output\_ssm\_alb\_internal\_arn) | AWS SSM parameter store ALB internal arn |
 | <a name="output_ssm_alb_internal_listener_arn"></a> [ssm\_alb\_internal\_listener\_arn](#output\_ssm\_alb\_internal\_listener\_arn) | AWS SSM parameter store ALB internal listner arn |

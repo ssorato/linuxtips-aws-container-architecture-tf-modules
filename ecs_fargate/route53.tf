@@ -26,17 +26,3 @@ resource "aws_route53_record" "wildcard" {
   }
 }
 
-# Service discovery zone
-resource "aws_service_discovery_private_dns_namespace" "main" {
-  name        = format("%s.discovery.com", var.project_name)
-  description = "Service Discovery usede in ECS cluster"
-  vpc         = data.aws_ssm_parameter.vpc.value
-
-  tags = merge(
-    {
-      Name = format("%s.discovery.com", var.project_name)
-    },
-    var.common_tags
-  )
-}
-

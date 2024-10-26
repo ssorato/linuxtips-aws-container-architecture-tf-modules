@@ -31,3 +31,13 @@ output "ssm_cloudmap" {
   description = "AWS SSM parameter store Service Discovery Namespace id"
   sensitive   = false
 }
+
+output "service_connect_ssm" {
+  value       = aws_ssm_parameter.service_connect.id
+  description = "AWS SSM parameter store Service Connect Namespace id"
+}
+
+output "service_connect_name_ssm" {
+  value       = aws_ssm_parameter.service_connect_name.id
+  description = "AWS SSM parameter store Service Connect name"
+}
