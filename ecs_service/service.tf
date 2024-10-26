@@ -70,10 +70,15 @@ resource "aws_ecs_service" "main" {
     assign_public_ip = false
   }
 
-  load_balancer {
-    target_group_arn = aws_alb_target_group.main.arn
-    container_name   = var.ecs_service_name
-    container_port   = var.ecs_service_port
+  dynamic "load_balancer" {
+    for_each = var.use_lb ? [1] : []
+
+    content {
+      target_group_arn = aws_alb_target_group.main[0].arn
+      container_name   = var.ecs_service_name
+      container_port   = var.ecs_service_port
+    }
+
   }
 
   lifecycle {

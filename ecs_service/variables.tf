@@ -55,6 +55,7 @@ variable "private_subnets" {
 variable "alb_listener_arn" {
   type        = string
   description = "The ALB listener arn"
+  default     = null
 }
 
 variable "service_task_execution_role_arn" {
@@ -257,4 +258,10 @@ variable "service_connect_name" {
 variable "service_connect_arn" {
   type    = string
   default = null
+}
+
+variable "use_lb" {
+  type        = bool
+  description = "Expose the service using an ALB"
+  default     = true
 }
