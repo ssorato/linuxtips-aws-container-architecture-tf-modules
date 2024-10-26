@@ -1,7 +1,7 @@
 <!-- BEGIN_TF_DOCS -->
 # Linuxtips course: Container architecture on AWS terraform modules
 
-Day 9: ECS service with Service Discovery
+Day 10: ECS service with Service Connect
 
 ## Requirements
 

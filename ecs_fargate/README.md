@@ -1,7 +1,7 @@
 <!-- BEGIN_TF_DOCS -->
 # Linuxtips course: Container architecture on AWS terraform modules
 
-Day 9: ECS cluster with only Fargate and Service Discovery
+Day 10: ECS cluster with only Fargate and Service Connect
 
 ## Requirements
 
