@@ -90,7 +90,7 @@ resource "aws_lb_target_group_attachment" "internal_lb" {
   target_id        = aws_lb.ecs_alb_internal.id
   port             = 80
 
-  depends_on = [aws_lb_listener.vpclink]
+  depends_on = [aws_ssm_parameter.vpc_link]
 }
 
 resource "aws_api_gateway_vpc_link" "main" {
