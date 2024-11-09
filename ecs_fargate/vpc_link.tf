@@ -83,13 +83,14 @@ resource "aws_lb_listener" "vpclink" {
   }
 
   tags       = var.common_tags
-  depends_on = [aws_lb_target_group.vpclink] # ValidationError: If the target type is ALB, the target must have at least one listener that matches the target group port or any specified port overrides
 }
 
 resource "aws_lb_target_group_attachment" "internal_lb" {
   target_group_arn = aws_lb_target_group.vpclink.arn
   target_id        = aws_lb.ecs_alb_internal.id
   port             = 80
+
+  depends_on = [aws_lb_listener.vpclink]
 }
 
 resource "aws_api_gateway_vpc_link" "main" {
