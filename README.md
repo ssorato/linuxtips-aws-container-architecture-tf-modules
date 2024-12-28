@@ -27,3 +27,5 @@ Instructor: [Matheus Fidelis](https://linktr.ee/fidelissauro)
 | day11 [network](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day11/network/README.md)         | Network infrastructure about ECS and API Gateway              |
 | day11 [ecs_fargate](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day11/ecs_fargate/README.md) | ECS with Fargate used with API Gateway                        |
 | day12 [ecs_service](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day12/ecs_service/README.md) | ECS and CodeDeploy                                            |
+| day_13_17 [ecs_service](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day_13_17/README.md)     | ECS final project                                             |
+
