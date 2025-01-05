@@ -1,9 +1,6 @@
 resource "aws_alb_target_group" "main" {
   count = (var.use_lb && var.deployment_controller == "ECS") ? 1 : 0
   #name  = substr(sha256(format("%s%s", var.ecs_service_name, var.ecs_name)), 0, 32)
-  #
-  # Still existing error: ResourceInUse: Listener port '80' is in use by registered target and cannot be removed
-  #
   name_prefix = substr(var.ecs_service_name, 0, 6)
 
   port   = var.ecs_service_port
