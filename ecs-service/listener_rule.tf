@@ -37,6 +37,10 @@ resource "aws_alb_listener_rule" "main_https" {
     }
   }
 
+  lifecycle {
+    replace_triggered_by = [aws_alb_target_group.main]
+  }
+
   tags = var.common_tags
 }
 
