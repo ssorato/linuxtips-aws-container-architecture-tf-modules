@@ -33,6 +33,11 @@ variable "ssm_pod_subnets" {
   description = "PODs subnets from AWS SSM parameters"
 }
 
+variable "ssm_natgw_eips" {
+  type        = list(string)
+  description = "NAT gw EIP from AWS SSM parameters"
+}
+
 variable "k8s_version" {
   type        = string
   description = "The kubernetes version"

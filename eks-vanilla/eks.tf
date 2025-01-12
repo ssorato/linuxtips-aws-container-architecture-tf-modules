@@ -6,7 +6,10 @@ resource "aws_eks_cluster" "main" {
 
   vpc_config {
     subnet_ids          = data.aws_ssm_parameter.private_subnets[*].value
-    public_access_cidrs = var.api_public_access_cidrs
+    public_access_cidrs = setunion(
+      var.api_public_access_cidrs,
+      formatlist("%s/32", data.aws_eip.eips[*].public_ip)
+    )
   }
 
   encryption_config {
