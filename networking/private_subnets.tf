@@ -20,7 +20,7 @@ resource "aws_nat_gateway" "main" {
 
   tags = merge(
     {
-      Name = var.unique_natgw == true ? format("%s-%s", var.project_name, var.public_subnets[count.index].availability_zone) : format("%s-natgw", var.project_name)
+      Name = format("%s-%s-natgw", var.project_name, var.public_subnets[count.index].availability_zone)
     },
     var.common_tags
   )

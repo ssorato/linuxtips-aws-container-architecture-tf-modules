@@ -57,3 +57,18 @@ resource "aws_ssm_parameter" "databases_subnets" {
   )
 }
 
+resource "aws_ssm_parameter" "natgw_eip" {
+  count = var.unique_natgw == true ? 1 : length(var.public_subnets)
+
+  name  = "/${var.project_name}/subnets/public/${var.public_subnets[count.index].availability_zone}/natgw-eip"
+  type  = "String"
+  value = aws_nat_gateway.main[count.index].allocation_id
+
+  tags = merge(
+    {
+      Name = "/${var.project_name}/subnets/public/${var.public_subnets[count.index].availability_zone}/natgw-eip"
+    },
+    var.common_tags
+  )
+}
+
