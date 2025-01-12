@@ -68,3 +68,21 @@ variable "nodes_instance_sizes" {
   type        = list(string)
   description = "List of instance types associated with the EKS Node Group"
 }
+
+variable "addon_cni_version" {
+  type        = string
+  description = "VPC CNI addon version"
+  default     = "v1.18.3-eksbuild.2"
+}
+
+variable "addon_coredns_version" {
+  type        = string
+  description = "CoreDNS addon version"
+  default     = "v1.11.3-eksbuild.1"
+}
+
+variable "addon_kubeproxy_version" {
+  type        = string
+  description = "Kube-Proxy addon version"
+  default     = "v1.31.2-eksbuild.3"
+}
