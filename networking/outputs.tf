@@ -17,3 +17,8 @@ output "database_subnets" {
   value       = aws_ssm_parameter.databases_subnets[*].id
   description = "SSM Parameters about database subnets id"
 }
+
+output "natgw_eips" {
+  value       = aws_ssm_parameter.natgw_eips[*].id
+  description = "SSM Parameters about nat gw eips"
+}

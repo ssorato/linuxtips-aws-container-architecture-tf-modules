@@ -57,7 +57,7 @@ resource "aws_ssm_parameter" "databases_subnets" {
   )
 }
 
-resource "aws_ssm_parameter" "natgw_eip" {
+resource "aws_ssm_parameter" "natgw_eips" {
   count = var.unique_natgw == true ? 1 : length(var.public_subnets)
 
   name  = "/${var.project_name}/subnets/public/${var.public_subnets[count.index].availability_zone}/natgw-eip"
