@@ -86,3 +86,9 @@ variable "addon_kubeproxy_version" {
   description = "Kube-Proxy addon version"
   default     = "v1.31.2-eksbuild.3"
 }
+
+variable "metrics_server_version" {
+  type        = string
+  description = "The metric server version"
+  default     = "7.2.16"
+}

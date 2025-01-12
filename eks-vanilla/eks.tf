@@ -5,7 +5,7 @@ resource "aws_eks_cluster" "main" {
   role_arn = aws_iam_role.eks_cluster_role.arn
 
   vpc_config {
-    subnet_ids          = data.aws_ssm_parameter.private_subnets[*].value
+    subnet_ids = data.aws_ssm_parameter.private_subnets[*].value
     public_access_cidrs = setunion(
       var.api_public_access_cidrs,
       formatlist("%s/32", data.aws_eip.eips[*].public_ip)

@@ -24,7 +24,7 @@ data "aws_ssm_parameter" "natgw_eips" {
 
 data "aws_eip" "eips" {
   count = length(data.aws_ssm_parameter.natgw_eips)
-  id = data.aws_ssm_parameter.natgw_eips[count.index].value
+  id    = data.aws_ssm_parameter.natgw_eips[count.index].value
 }
 
 data "aws_eks_cluster_auth" "default" {
