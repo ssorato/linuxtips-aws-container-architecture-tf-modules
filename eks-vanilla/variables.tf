@@ -24,11 +24,11 @@ variable "ssm_public_subnets" {
 }
 
 variable "ssm_private_subnets" {
-  type = list(string)
+  type        = list(string)
   description = "Private subnets from AWS SSM parameters"
 }
 
 variable "ssm_pod_subnets" {
-  type = list(string)
+  type        = list(string)
   description = "PODs subnets from AWS SSM parameters"
 }
