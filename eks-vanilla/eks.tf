@@ -25,6 +25,10 @@ resource "aws_eks_cluster" "main" {
     "api", "audit", "authenticator", "controllerManager", "scheduler"
   ]
 
+  zonal_shift_config {
+    enabled = true
+  }
+
   tags = merge(
     {
       Name                                        = var.project_name,
