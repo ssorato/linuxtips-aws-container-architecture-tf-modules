@@ -28,5 +28,6 @@ Instructor: [Matheus Fidelis](https://linktr.ee/fidelissauro)
 | day11 [ecs_fargate](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day11/ecs_fargate/README.md)   | ECS with Fargate used with API Gateway                        |
 | day12 [ecs_service](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day12/ecs_service/README.md)   | ECS and CodeDeploy                                            |
 | day_13_17 [ECS final project](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day_13_17/README.md) | ECS final project                                             |
-| day_18 [networking](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day18/networking/README.md)    | Elastic Kubernetes Service networking                                          |
-
+| day_18 [networking](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day18/networking/README.md)    | Elastic Kubernetes Service networking                         |
+| day_19 [networking](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day19/eks-vanilla/README.md)   | Elastic Kubernetes Service Vanilla cluster minimal setup      |
+| day_20 [networking](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day20/eks-vanilla/README.md)   | Elastic Kubernetes Service Node groups and Cluster Autoscaler |
