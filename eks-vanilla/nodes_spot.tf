@@ -1,6 +1,6 @@
-resource "aws_eks_node_group" "main" {
+resource "aws_eks_node_group" "spot" {
   cluster_name    = aws_eks_cluster.main.id
-  node_group_name = format("%s-on-demand", aws_eks_cluster.main.id)
+  node_group_name = format("%s-spot", aws_eks_cluster.main.id)
   node_role_arn   = aws_iam_role.eks_nodes_role.arn
   subnet_ids      = data.aws_ssm_parameter.pod_subnets[*].value
 
@@ -12,12 +12,12 @@ resource "aws_eks_node_group" "main" {
     min_size     = lookup(var.auto_scale_options, "min")
   }
 
-  capacity_type = "ON_DEMAND"
+  capacity_type = "SPOT"
 
   labels = {
     "capacity/os"   = "AMAZON_LINUX"
     "capacity/arch" = "x86_64"
-    "capacity/type" = "ON_DEMAND"
+    "capacity/type" = "SPOT"
   }
 
   lifecycle {
@@ -34,7 +34,7 @@ resource "aws_eks_node_group" "main" {
 
   tags = merge(
     {
-      Name                                        = format("%s-on-demand", aws_eks_cluster.main.id),
+      Name                                        = format("%s-spot", aws_eks_cluster.main.id),
       "kubernetes.io/cluster/${var.project_name}" = "owned"
     },
     var.common_tags
