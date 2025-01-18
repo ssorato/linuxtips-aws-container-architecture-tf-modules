@@ -69,6 +69,11 @@ variable "nodes_instance_sizes" {
   description = "List of instance types associated with the EKS Node Group"
 }
 
+variable "nodes_graviton_instance_sizes" {
+  type        = list(string)
+  description = "List of instance types associated with the EKS Node Group using AWS Graviton"
+}
+
 variable "addon_cni_version" {
   type        = string
   description = "VPC CNI addon version"
