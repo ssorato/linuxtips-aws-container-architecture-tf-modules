@@ -92,3 +92,9 @@ variable "metrics_server_version" {
   description = "The metric server version"
   default     = "7.2.16"
 }
+
+variable "fargate_namespace" {
+  type        = string
+  description = "Fargte namespace"
+
+}
