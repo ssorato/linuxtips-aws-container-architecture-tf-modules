@@ -31,3 +31,5 @@ Instructor: [Matheus Fidelis](https://linktr.ee/fidelissauro)
 | day_18 [networking](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day18/networking/README.md)    | Elastic Kubernetes Service networking                         |
 | day_19 [eks-vanilla](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day19/eks-vanilla/README.md)  | Elastic Kubernetes Service Vanilla cluster minimal setup      |
 | day_20 [eks-vanilla](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day20/eks-vanilla/README.md)  | Elastic Kubernetes Service Node groups and Cluster Autoscaler |
+| day_21 [eks-ec2-fargate](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day21/eks-ec2-fargate/README.md)   | Elastic Kubernetes Service - Cluster EC2 and Fargate  |
+| day_21 [eks-full-fargate](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day21/eks-full-fargate/README.md) | Elastic Kubernetes Service - Cluster full Fargate     |
