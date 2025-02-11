@@ -10,16 +10,3 @@ resource "aws_eks_access_entry" "nodes" {
     var.common_tags
   )
 }
-
-resource "aws_eks_access_entry" "fargate" {
-  cluster_name  = aws_eks_cluster.main.id
-  principal_arn = aws_iam_role.fargate.arn
-  type          = "FARGATE_LINUX"
-
-  tags = merge(
-    {
-      Name = var.project_name
-    },
-    var.common_tags
-  )
-}
