@@ -31,7 +31,7 @@ resource "aws_security_group_rule" "coredns_tcp" {
 #
 # used by metric server option "--kubelet-preferred-address-types=InternalIP"
 #
-resource "aws_security_group_rule" "coredns_tcp" {
+resource "aws_security_group_rule" "kubelet_tcp" {
   cidr_blocks       = ["0.0.0.0/0"]
   from_port         = 10250
   to_port           = 10250
