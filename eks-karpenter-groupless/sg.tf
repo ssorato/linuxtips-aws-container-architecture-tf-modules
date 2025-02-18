@@ -27,3 +27,16 @@ resource "aws_security_group_rule" "coredns_tcp" {
   type              = "ingress"
   security_group_id = aws_eks_cluster.main.vpc_config[0].cluster_security_group_id
 }
+
+#
+# used by metric server option "--kubelet-preferred-address-types=InternalIP"
+#
+resource "aws_security_group_rule" "coredns_tcp" {
+  cidr_blocks       = ["0.0.0.0/0"]
+  from_port         = 10250
+  to_port           = 10250
+  protocol          = "tcp"
+  description       = "Kubelet"
+  type              = "ingress"
+  security_group_id = aws_eks_cluster.main.vpc_config[0].cluster_security_group_id
+}
