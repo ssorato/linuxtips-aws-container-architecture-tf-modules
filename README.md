@@ -33,3 +33,5 @@ Instructor: [Matheus Fidelis](https://linktr.ee/fidelissauro)
 | day_20 [eks-vanilla](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day20/eks-vanilla/README.md)  | Elastic Kubernetes Service Node groups and Cluster Autoscaler |
 | day_21 [eks-ec2-fargate](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day21/eks-ec2-fargate/README.md)   | Elastic Kubernetes Service - Cluster EC2 and Fargate  |
 | day_21 [eks-full-fargate](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day21/eks-full-fargate/README.md) | Elastic Kubernetes Service - Cluster full Fargate     |
+| day_22 [eks-karpenter](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day22/eks-karpenter/README.md) |	Elastic Kubernetes Service - karpenter |
+| day_23 [eks-karpenter-groupless](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day23/eks-karpenter-groupless/README.md) | Elastic Kubernetes Service - karpenter groupless and fargate profile |
