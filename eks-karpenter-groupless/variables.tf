@@ -55,20 +55,6 @@ variable "eks_oidc_thumbprint" {
   default     = "9e99a48a9960b14926bb7f3b02e22da2b0ab7280"
 }
 
-variable "node_group" {
-  type = map(object({
-    capacity_type  = string
-    ami_type       = optional(string, null)
-    labels         = map(string)
-    instance_sizes = list(string)
-    volume_size    = optional(number, 20)
-    min            = number
-    max            = number
-    desired        = number
-  }))
-  description = "Cluster node group and autoscaling configurations"
-}
-
 variable "addon_cni_version" {
   type        = string
   description = "VPC CNI addon version"
@@ -104,4 +90,9 @@ variable "karpenter_capacity" {
     capacity_type      = list(string)
     availability_zones = list(string)
   }))
+}
+
+variable "coredns_fargate" {
+  type    = bool
+  default = true
 }

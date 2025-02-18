@@ -2,6 +2,6 @@
 
 [Main respository](https://github.com/ssorato/linuxtips-aws-container-architecture)
 
-| Module                                     | Description                                           |
-|--------------------------------------------|-------------------------------------------------------|
-| [eks-karpenter](eks-karpenter/README.md)   | Elastic Kubernetes Service - karpenter                |
+| Module                                             | Description                                                          |
+|----------------------------------------------------|----------------------------------------------------------------------|
+| [eks-karpenter](eks-karpenter-groupless/README.md) | Elastic Kubernetes Service - karpenter groupless and fargate profile |

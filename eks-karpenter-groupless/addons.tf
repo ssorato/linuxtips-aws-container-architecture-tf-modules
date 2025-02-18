@@ -26,6 +26,10 @@ resource "aws_eks_addon" "coredns" {
   resolve_conflicts_on_create = "OVERWRITE"
   resolve_conflicts_on_update = "OVERWRITE"
 
+  configuration_values = jsonencode({
+    computeType = "Fargate"
+  })
+
   tags = merge(
     {
       Name = "coredns"
@@ -34,7 +38,8 @@ resource "aws_eks_addon" "coredns" {
   )
 
   depends_on = [
-    aws_eks_access_entry.nodes
+    aws_eks_access_entry.nodes,
+    aws_eks_fargate_profile.kube_system
   ]
 }
 
