@@ -30,7 +30,7 @@ resource "helm_release" "metrics_server" {
 
   set {
     name  = "extraArgs[1]"
-    value = "--kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname"
+    value = "--kubelet-preferred-address-types=InternalIP"
   }
 
   depends_on = [
