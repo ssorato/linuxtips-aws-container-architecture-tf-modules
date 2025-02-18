@@ -44,7 +44,7 @@ resource "aws_security_group_rule" "kubelet_tcp" {
 #
 # used by metric server option "--kubelet-preferred-address-types=InternalIP"
 #
-resource "aws_security_group_rule" "kubelet_tcp" {
+resource "aws_security_group_rule" "metric_server_tcp" {
   cidr_blocks       = ["0.0.0.0/0"]
   from_port         = 8443
   to_port           = 8443
