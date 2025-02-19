@@ -35,3 +35,4 @@ Instructor: [Matheus Fidelis](https://linktr.ee/fidelissauro)
 | day_21 [eks-full-fargate](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day21/eks-full-fargate/README.md) | Elastic Kubernetes Service - Cluster full Fargate     |
 | day_22 [eks-karpenter](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day22/eks-karpenter/README.md) |	Elastic Kubernetes Service - karpenter |
 | day_23 [eks-karpenter-groupless](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day23/eks-karpenter-groupless/README.md) | Elastic Kubernetes Service - karpenter groupless and fargate profile |
+| day_24 [eks-albc](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day24/eks-albc/README.md) | Elastic Kubernetes Service - AWS Load Balancer Controller |
