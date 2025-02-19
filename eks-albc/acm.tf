@@ -1,5 +1,5 @@
 resource "aws_acm_certificate" "main" {
-  count = var.route53.dns_name == "" || var.route53.hosted_zone == "" ? 0 : 1
+  count             = var.route53.dns_name == "" || var.route53.hosted_zone == "" ? 0 : 1
   domain_name       = var.route53.dns_name
   validation_method = "DNS"
 

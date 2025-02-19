@@ -22,10 +22,10 @@ resource "aws_lb" "ingress" {
 resource "aws_lb_target_group" "main" {
   count = var.create_nlb == true ? 1 : 0
 
-  name = format("%s-lb-tg", var.project_name)
-  port = 8080
+  name     = format("%s-lb-tg", var.project_name)
+  port     = 8080
   protocol = "TCP"
-  vpc_id = data.aws_ssm_parameter.vpc.value
+  vpc_id   = data.aws_ssm_parameter.vpc.value
 
   tags = merge(
     {
@@ -41,9 +41,9 @@ resource "aws_lb_listener" "main" {
   load_balancer_arn = aws_lb.ingress[0].arn
   port              = 80
   protocol          = "TCP"
-  
+
   default_action {
-      type             = "forward"
-      target_group_arn = aws_lb_target_group.main[0].arn
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.main[0].arn
   }
 }
