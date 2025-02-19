@@ -8,7 +8,8 @@ resource "aws_subnet" "public" {
 
   tags = merge(
     {
-      Name = var.public_subnets[count.index].name
+      Name                     = var.public_subnets[count.index].name
+      "kubernetes.io/role/elb" = "1" # AWS Load Balancer Controller subnet auto-discovery
     },
     var.common_tags
   )
