@@ -91,3 +91,17 @@ variable "karpenter_capacity" {
     availability_zones = list(string)
   }))
 }
+
+variable "route53" {
+  type = object({
+    dns_name    = string
+    hosted_zone = string
+  })
+  description = "Route53 dns name and hosted zone"
+}
+
+variable "create_nlb" {
+  type = bool
+  description = "Create a NLB used by AWS load balancer controller and TargetGroupBinding"
+  default = false
+}
