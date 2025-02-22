@@ -100,8 +100,27 @@ variable "route53" {
   description = "Route53 dns name and hosted zone"
 }
 
-variable "create_nlb" {
-  type        = bool
-  description = "Create a NLB used by AWS load balancer controller and TargetGroupBinding"
-  default     = false
+variable "ingress_nlb" {
+  type = object({
+    create        = bool
+    inbound_cidrs = optional(list(string), ["0.0.0.0/0"])
+  })
+  description = "Create a NLB used by ingress controller and TargetGroupBinding"
+  default = {
+    create = false
+  }
+}
+
+variable "nginx_controller_config" {
+  type = object({
+    kind            = optional(string, "Deployment")
+    min_replicas    = number
+    max_replicas    = number
+    requests_cpu    = string
+    requests_memory = string
+    limits_cpu      = string
+    limits_memory   = string
+    use_fargate     = optional(bool, false)
+  })
+  description = "Nginx Ingress Controller configurations"
 }
