@@ -68,7 +68,10 @@ resource "helm_release" "nginx_controller" {
   }
 
   depends_on = [
-    helm_release.karpenter
+    aws_eks_addon.cni,
+    aws_eks_addon.coredns,
+    aws_eks_addon.kubeproxy,
+    helm_release.karpenter,
   ]
 }
 
