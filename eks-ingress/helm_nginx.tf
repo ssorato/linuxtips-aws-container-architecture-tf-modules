@@ -1,4 +1,6 @@
 resource "helm_release" "nginx_controller" {
+  count = var.ingress_nlb.ingress_type == "nginx" ? 1 : 0
+
   name       = "ingress-nginx"
   namespace  = "ingress-nginx"
   chart      = "ingress-nginx"
@@ -30,39 +32,39 @@ resource "helm_release" "nginx_controller" {
 
   set {
     name  = "controller.autoscaling.minReplicas"
-    value = var.nginx_controller_config.min_replicas
+    value = var.ingress_controller_config.min_replicas
   }
 
   set {
     name  = "controller.autoscaling.maxReplicas"
-    value = var.nginx_controller_config.max_replicas
+    value = var.ingress_controller_config.max_replicas
   }
 
   # Capacity
 
   set {
     name  = "controller.resources.requests.cpu"
-    value = var.nginx_controller_config.requests_cpu
+    value = var.ingress_controller_config.requests_cpu
   }
 
   set {
     name  = "controller.resources.requests.memory"
-    value = var.nginx_controller_config.requests_memory
+    value = var.ingress_controller_config.requests_memory
   }
 
   set {
     name  = "controller.resources.limits.cpu"
-    value = var.nginx_controller_config.limits_cpu
+    value = var.ingress_controller_config.limits_cpu
   }
 
   set {
     name  = "controller.resources.limits.memory"
-    value = var.nginx_controller_config.limits_memory
+    value = var.ingress_controller_config.limits_memory
   }
 
   set {
     name  = "controller.kind"
-    value = var.nginx_controller_config.kind
+    value = var.ingress_controller_config.kind
   }
 
   depends_on = [
@@ -70,8 +72,11 @@ resource "helm_release" "nginx_controller" {
   ]
 }
 
+#
+# Ingress Controller -> service.type = NodePort
+# TargetGroupBinding - > targetType: instance
 resource "kubectl_manifest" "nginx_targetgroupbinding_80" {
-  count     = var.ingress_nlb.create == true ? 1 : 0
+  count     = var.ingress_nlb.create == true && var.ingress_nlb.ingress_type == "nginx" ? 1 : 0
   yaml_body = <<YAML
 apiVersion: elbv2.k8s.aws/v1beta1
 kind: TargetGroupBinding
@@ -86,6 +91,7 @@ spec:
   targetType: instance
 YAML
   depends_on = [
-    helm_release.nginx_controller
+    helm_release.nginx_controller,
+    helm_release.alb_ingress_controller # due to TargetGroupBinding
   ]
 }

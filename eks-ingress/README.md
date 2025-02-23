@@ -1,7 +1,7 @@
 <!-- BEGIN_TF_DOCS -->
 # Linuxtips course: Container architecture on AWS terraform modules
 
-Day 24: Elastic Kubernetes Service - Nginx Ingress Controller
+Day 24: Elastic Kubernetes Service - Others Ingress Controllers
 
 ## Requirements
 
@@ -89,9 +89,11 @@ No modules.
 | [helm_release.kube_state_metrics](https://registry.terraform.io/providers/hashicorp/helm/latest/docs/resources/release) | resource |
 | [helm_release.metrics_server](https://registry.terraform.io/providers/hashicorp/helm/latest/docs/resources/release) | resource |
 | [helm_release.nginx_controller](https://registry.terraform.io/providers/hashicorp/helm/latest/docs/resources/release) | resource |
+| [helm_release.traefik_controller](https://registry.terraform.io/providers/hashicorp/helm/latest/docs/resources/release) | resource |
 | [kubectl_manifest.ec2_node_class](https://registry.terraform.io/providers/gavinbunney/kubectl/latest/docs/resources/manifest) | resource |
 | [kubectl_manifest.nginx_targetgroupbinding_80](https://registry.terraform.io/providers/gavinbunney/kubectl/latest/docs/resources/manifest) | resource |
 | [kubectl_manifest.nodepool](https://registry.terraform.io/providers/gavinbunney/kubectl/latest/docs/resources/manifest) | resource |
+| [kubectl_manifest.traefik_targetgroupbinding_80](https://registry.terraform.io/providers/gavinbunney/kubectl/latest/docs/resources/manifest) | resource |
 | [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
 | [aws_eip.eips](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/eip) | data source |
 | [aws_eks_cluster_auth.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/eks_cluster_auth) | data source |
@@ -122,11 +124,11 @@ No modules.
 | <a name="input_api_public_access_cidrs"></a> [api\_public\_access\_cidrs](#input\_api\_public\_access\_cidrs) | List of CIDR blocks that can access the Amazon EKS public API server endpoint when enabled | `list(string)` | <pre>[<br/>  "0.0.0.0/0"<br/>]</pre> | no |
 | <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | Common tags | `map(string)` | n/a | yes |
 | <a name="input_eks_oidc_thumbprint"></a> [eks\_oidc\_thumbprint](#input\_eks\_oidc\_thumbprint) | Thumbprint of Root CA for EKS OIDC | `string` | `"9e99a48a9960b14926bb7f3b02e22da2b0ab7280"` | no |
-| <a name="input_ingress_nlb"></a> [ingress\_nlb](#input\_ingress\_nlb) | Create a NLB used by ingress controller and TargetGroupBinding | <pre>object({<br/>    create        = bool<br/>    inbound_cidrs = optional(list(string), ["0.0.0.0/0"])<br/>  })</pre> | <pre>{<br/>  "create": false<br/>}</pre> | no |
+| <a name="input_ingress_controller_config"></a> [ingress\_controller\_config](#input\_ingress\_controller\_config) | Ingress Controller configurations | <pre>object({<br/>    kind            = optional(string, "Deployment")<br/>    min_replicas    = number<br/>    max_replicas    = number<br/>    requests_cpu    = string<br/>    requests_memory = string<br/>    limits_cpu      = string<br/>    limits_memory   = string<br/>    fargate_ns      = optional(string, "")<br/>  })</pre> | n/a | yes |
+| <a name="input_ingress_nlb"></a> [ingress\_nlb](#input\_ingress\_nlb) | Create a NLB used by ingress controller and TargetGroupBinding | <pre>object({<br/>    create        = bool<br/>    ingress_type  = optional(string, "")<br/>    inbound_cidrs = optional(list(string), ["0.0.0.0/0"])<br/>  })</pre> | <pre>{<br/>  "create": false<br/>}</pre> | no |
 | <a name="input_k8s_version"></a> [k8s\_version](#input\_k8s\_version) | The kubernetes version | `string` | n/a | yes |
 | <a name="input_karpenter_capacity"></a> [karpenter\_capacity](#input\_karpenter\_capacity) | n/a | <pre>list(object({<br/>    name               = string<br/>    workload           = string<br/>    ami_family         = string<br/>    ami_ssm            = string<br/>    instance_family    = list(string)<br/>    instance_sizes     = list(string)<br/>    capacity_type      = list(string)<br/>    availability_zones = list(string)<br/>  }))</pre> | n/a | yes |
 | <a name="input_metrics_server_version"></a> [metrics\_server\_version](#input\_metrics\_server\_version) | The metric server version | `string` | `"7.2.16"` | no |
-| <a name="input_nginx_controller_config"></a> [nginx\_controller\_config](#input\_nginx\_controller\_config) | Nginx Ingress Controller configurations | <pre>object({<br/>    kind            = optional(string, "Deployment")<br/>    min_replicas    = number<br/>    max_replicas    = number<br/>    requests_cpu    = string<br/>    requests_memory = string<br/>    limits_cpu      = string<br/>    limits_memory   = string<br/>    use_fargate     = optional(bool, false)<br/>  })</pre> | n/a | yes |
 | <a name="input_project_name"></a> [project\_name](#input\_project\_name) | The resource name sufix | `string` | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | The AWS region | `string` | n/a | yes |
 | <a name="input_route53"></a> [route53](#input\_route53) | Route53 dns name and hosted zone | <pre>object({<br/>    dns_name    = string<br/>    hosted_zone = string<br/>  })</pre> | n/a | yes |

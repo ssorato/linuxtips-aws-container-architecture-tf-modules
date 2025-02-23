@@ -103,15 +103,22 @@ variable "route53" {
 variable "ingress_nlb" {
   type = object({
     create        = bool
+    ingress_type  = optional(string, "")
     inbound_cidrs = optional(list(string), ["0.0.0.0/0"])
   })
   description = "Create a NLB used by ingress controller and TargetGroupBinding"
   default = {
     create = false
   }
+  validation {
+    condition     = var.ingress_nlb.create == true && contains(["nginx", "traefik"], var.ingress_nlb.ingress_type)
+    error_message = "NBL ingress destination can be 'nginx' (Nginx Ingress Controller) or 'traefik' (Traefik Kubernetes Ingress)"
+  }
 }
 
-variable "nginx_controller_config" {
+#
+# Usign autoscaling
+variable "ingress_controller_config" {
   type = object({
     kind            = optional(string, "Deployment")
     min_replicas    = number
@@ -120,7 +127,7 @@ variable "nginx_controller_config" {
     requests_memory = string
     limits_cpu      = string
     limits_memory   = string
-    use_fargate     = optional(bool, false)
+    fargate_ns      = optional(string, "")
   })
-  description = "Nginx Ingress Controller configurations"
+  description = "Ingress Controller configurations"
 }
