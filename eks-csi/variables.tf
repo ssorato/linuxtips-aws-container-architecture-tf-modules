@@ -92,3 +92,28 @@ variable "metrics_server_version" {
   description = "The metric server version"
   default     = "7.2.16"
 }
+
+variable "addon_pod_identity_version" {
+  type        = string
+  description = "VPod Identity addon version"
+  default     = "v1.3.4-eksbuild.1"
+}
+
+variable "addon_ebs_csi_version" {
+  type        = string
+  description = "EBS CSI addon version"
+  default     = "v1.39.0-eksbuild.1"
+}
+
+variable "addon_efs_csi_version" {
+  type        = string
+  description = "EFS CSI addon version"
+  default     = "v2.1.4-eksbuild.1"
+}
+
+variable "addon_s3_csi_version" {
+  type        = string
+  description = "S3 CSI addon version"
+  default     = "v1.11.0-eksbuild.1"
+}
+
