@@ -92,3 +92,9 @@ variable "metrics_server_version" {
   description = "The metric server version"
   default     = "7.2.16"
 }
+
+variable "addon_pod_identity_version" {
+  type        = string
+  description = "Pod Identity addon version"
+  default     = "v1.3.4-eksbuild.1"
+}
