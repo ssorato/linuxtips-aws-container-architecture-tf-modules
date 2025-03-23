@@ -63,38 +63,3 @@ variable "auto_scale_options" {
   })
   description = "Cluster autoscaling configurations"
 }
-
-variable "nodes_instance_sizes" {
-  type        = list(string)
-  description = "List of instance types associated with the EKS Node Group"
-}
-
-variable "addon_cni_version" {
-  type        = string
-  description = "VPC CNI addon version"
-  default     = "v1.18.3-eksbuild.2"
-}
-
-variable "addon_coredns_version" {
-  type        = string
-  description = "CoreDNS addon version"
-  default     = "v1.11.3-eksbuild.1"
-}
-
-variable "addon_kubeproxy_version" {
-  type        = string
-  description = "Kube-Proxy addon version"
-  default     = "v1.31.2-eksbuild.3"
-}
-
-variable "metrics_server_version" {
-  type        = string
-  description = "The metric server version"
-  default     = "7.2.16"
-}
-
-variable "addon_pod_identity_version" {
-  type        = string
-  description = "Pod Identity addon version"
-  default     = "v1.3.4-eksbuild.1"
-}
