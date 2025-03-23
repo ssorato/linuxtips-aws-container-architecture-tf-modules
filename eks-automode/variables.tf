@@ -54,12 +54,3 @@ variable "eks_oidc_thumbprint" {
   description = "Thumbprint of Root CA for EKS OIDC"
   default     = "9e99a48a9960b14926bb7f3b02e22da2b0ab7280"
 }
-
-variable "auto_scale_options" {
-  type = object({
-    min     = number
-    max     = number
-    desired = number
-  })
-  description = "Cluster autoscaling configurations"
-}
