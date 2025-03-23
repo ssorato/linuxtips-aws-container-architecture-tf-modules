@@ -32,6 +32,27 @@ resource "aws_eks_cluster" "main" {
     enabled = true
   }
 
+  # Automode
+  bootstrap_self_managed_addons = false
+
+  kubernetes_network_config {
+    elastic_load_balancing {
+      enabled = true
+    }
+  }
+
+  storage_config {
+    block_storage {
+      enabled = true
+    }
+  }
+
+  compute_config {
+    enabled       = true
+    node_pools    = ["general-purpose", "system"]
+    node_role_arn = aws_iam_role.eks_nodes_role.arn
+  }
+
   tags = merge(
     {
       Name                                        = var.project_name,

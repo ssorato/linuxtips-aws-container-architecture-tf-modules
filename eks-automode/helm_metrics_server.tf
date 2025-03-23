@@ -13,8 +13,22 @@ resource "helm_release" "metrics_server" {
     value = "true"
   }
 
+  set {
+    name  = "nodeSelector.karpenter\\.sh/nodepool"
+    value = "system"
+  }
+
+  set {
+    name  = "tolerations[0].key"
+    value = "CriticalAddonsOnly"
+  }
+
+  set {
+    name  = "tolerations[0].operator"
+    value = "Exists"
+  }
+
   depends_on = [
-    aws_eks_cluster.main,
-    aws_eks_node_group.main
+    aws_eks_cluster.main
   ]
 }

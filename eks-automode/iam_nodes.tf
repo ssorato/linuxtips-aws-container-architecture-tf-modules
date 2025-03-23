@@ -30,7 +30,6 @@ resource "aws_iam_role" "eks_nodes_role" {
   )
 }
 
-
 resource "aws_iam_role_policy_attachment" "cni" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
   role       = aws_iam_role.eks_nodes_role.name
