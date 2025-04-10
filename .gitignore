@@ -1,2 +1,3 @@
 .infracost
 eks-full-fargate/files/coredns.zip
+eks-prometheus/files/prometheus/helm-full-values.yaml
