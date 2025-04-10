@@ -4,4 +4,4 @@
 
 | Module                                    | Description                            |
 |-------------------------------------------|----------------------------------------|
-| [eks-ext-secrets](eks-automode/README.md) | Elastic Kubernetes Service - Automode  |
+| [eks-automode](eks-automode/README.md)    | Elastic Kubernetes Service - Automode  |
