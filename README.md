@@ -4,4 +4,4 @@
 
 | Module                                  | Description                                             |
 |-----------------------------------------|---------------------------------------------------------|
-| [eks-ingress](eks-prometheus/README.md) | Elastic Kubernetes Service - kube-prometheus-stack      |
+| [eks-prometheus](eks-prometheus/README.md) | Elastic Kubernetes Service - kube-prometheus-stack      |
