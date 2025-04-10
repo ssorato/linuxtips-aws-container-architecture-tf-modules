@@ -39,3 +39,5 @@ Instructor: [Matheus Fidelis](https://linktr.ee/fidelissauro)
 | day_25 [eks-ingress](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day25/eks-ingress/README.md) | Elastic Kubernetes Service - Others Ingress Controllers |
 | day_26 [eks-csi](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day26/eks-csi/README.md) | Elastic Kubernetes Service - POD identity, EBS, S3 and EFS CSI addons |
 | day_27 [eks-ext-secrets](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day27/eks-ext-secrets/README.md) | Elastic Kubernetes Service - External Secrets with AWS Secrets Manager |
+| day_28 [eks-automode](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day28/eks-automode/README.md) | Elastic Kubernetes Service - Automode |
+| day_29 [eks-prometheus](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day29/eks-prometheus/README.md) | Elastic Kubernetes Service - kube-prometheus-stack |
