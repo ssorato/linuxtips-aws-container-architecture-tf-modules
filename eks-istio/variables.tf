@@ -121,19 +121,13 @@ variable "route53" {
   description = "Route53 dns name and hosted zone"
 }
 
-#
-# Usign autoscaling
-variable "ingress_controller_config" {
+variable "istio_config" {
   type = object({
-    kind            = optional(string, "Deployment")
-    min_replicas    = number
-    max_replicas    = number
-    requests_cpu    = string
-    requests_memory = string
-    limits_cpu      = string
-    limits_memory   = string
+    version       = string
+    min_replicas  = number
+    cpu_threshold = number
   })
-  description = "Ingress Controller configurations"
+  description = "Istio Ingress Controller configurations"
 }
 
 variable "ingress_inbound_cidrs" {
@@ -159,4 +153,20 @@ variable "node_group" {
 variable "grafana_host" {
   type        = string
   description = "Grafana host"
+}
+
+variable "jaeger_host" {
+  type        = string
+  description = "Jaeger host"
+}
+
+variable "kiali_host" {
+  type        = string
+  description = "Kiali host"
+}
+
+variable "kiali_version" {
+  type        = string
+  description = "The Kiali version"
+  default     = "2.5"
 }

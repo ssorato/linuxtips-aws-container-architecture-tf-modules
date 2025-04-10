@@ -4,4 +4,4 @@
 
 | Module                                  | Description                                             |
 |-----------------------------------------|---------------------------------------------------------|
-| [eks-prometheus](eks-prometheus/README.md) | Elastic Kubernetes Service - kube-prometheus-stack      |
+| [eks-istio](eks-istio/README.md)        | Elastic Kubernetes Service - Istio Service Mesh      |

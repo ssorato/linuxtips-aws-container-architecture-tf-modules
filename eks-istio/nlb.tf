@@ -6,6 +6,10 @@ resource "aws_lb" "ingress" {
 
   subnets = data.aws_ssm_parameter.public_subnets[*].value
 
+  security_groups = [
+    aws_security_group.nlb_sg.id
+  ]
+
   enable_cross_zone_load_balancing = true
   enable_deletion_protection       = false
 
