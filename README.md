@@ -4,4 +4,4 @@
 
 | Module                                  | Description                                             |
 |-----------------------------------------|---------------------------------------------------------|
-| [eks-istio](eks-istio/README.md)        | Elastic Kubernetes Service - Istio Service Mesh      |
+| [eks-keda](eks-keda/README.md)          | Elastic Kubernetes Service - Keda                       |

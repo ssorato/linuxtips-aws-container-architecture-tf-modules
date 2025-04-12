@@ -13,25 +13,14 @@ resource "helm_release" "metrics_server" {
     value = "true"
   }
 
-  # # Prometheus metrics
-  # set {
-  #   name  = "serviceMonitor.enabled"
-  #   value = "true"
-  # }
-
-  # #
-  # # --kubelet-insecure-tls=true
-  # # --kubelet-preferred-address-types=InternalIP
-  # # now metric server is ready ...
-  # #
-  # set {
-  #   name  = "extraArgs[0]"
-  #   value = "--kubelet-insecure-tls=true"
-  # }
-
   set {
     name  = "extraArgs[1]"
     value = "--kubelet-preferred-address-types=InternalIP"
+  }
+
+  set {
+    name  = "serviceMonitor.enabled"
+    value = "true"
   }
 
   depends_on = [

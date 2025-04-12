@@ -3,6 +3,11 @@ output "eks_api_endpoint" {
   description = "API server endpoint"
 }
 
+output "eks_cluster_name" {
+  value       = aws_eks_cluster.main.name
+  description = "EKS cluster name"
+}
+
 output "k8s_token" {
   value = data.aws_eks_cluster_auth.default.token
 }

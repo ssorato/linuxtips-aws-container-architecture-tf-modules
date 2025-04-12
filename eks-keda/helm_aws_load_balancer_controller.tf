@@ -34,7 +34,13 @@ resource "helm_release" "alb_ingress_controller" {
   set {
     name  = "vpcId"
     value = data.aws_ssm_parameter.vpc.value
+  }
 
+  # enableServiceMutatorWebhook allows you enable the webhook which makes 
+  # this controller the default for all new services of type LoadBalancer
+  set {
+    name  = "enableServiceMutatorWebhook"
+    value = "false"
   }
 
   depends_on = [
