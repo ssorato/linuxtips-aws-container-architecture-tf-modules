@@ -1,7 +1,7 @@
 <!-- BEGIN_TF_DOCS -->
 # Linuxtips course: Container architecture on AWS terraform modules
 
-Day 30: Elastic Kubernetes Service - Keda
+Day 30: Elastic Kubernetes Service - Argo Rollouts
 
 ## Requirements
 
@@ -53,6 +53,7 @@ No modules.
 | [aws_eks_cluster.main](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster) | resource |
 | [aws_eks_fargate_profile.karpenter](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_fargate_profile) | resource |
 | [aws_eks_fargate_profile.keda](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_fargate_profile) | resource |
+| [aws_eks_fargate_profile.rollouts](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_fargate_profile) | resource |
 | [aws_eks_node_group.main](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_node_group) | resource |
 | [aws_eks_pod_identity_association.efs_csi](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_pod_identity_association) | resource |
 | [aws_eks_pod_identity_association.keda](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_pod_identity_association) | resource |
@@ -86,6 +87,7 @@ No modules.
 | [aws_lb_listener.https](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_listener) | resource |
 | [aws_lb_listener.main](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_listener) | resource |
 | [aws_lb_target_group.main](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_target_group) | resource |
+| [aws_route53_record.argo_rollouts](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record) | resource |
 | [aws_route53_record.chip](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record) | resource |
 | [aws_route53_record.grafana](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record) | resource |
 | [aws_route53_record.health_api](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record) | resource |
@@ -103,6 +105,7 @@ No modules.
 | [aws_sqs_queue.karpenter](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sqs_queue) | resource |
 | [aws_sqs_queue_policy.karpenter](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sqs_queue_policy) | resource |
 | [helm_release.alb_ingress_controller](https://registry.terraform.io/providers/hashicorp/helm/latest/docs/resources/release) | resource |
+| [helm_release.argo_rollouts](https://registry.terraform.io/providers/hashicorp/helm/latest/docs/resources/release) | resource |
 | [helm_release.istio_base](https://registry.terraform.io/providers/hashicorp/helm/latest/docs/resources/release) | resource |
 | [helm_release.istio_ingress](https://registry.terraform.io/providers/hashicorp/helm/latest/docs/resources/release) | resource |
 | [helm_release.istiod](https://registry.terraform.io/providers/hashicorp/helm/latest/docs/resources/release) | resource |
@@ -123,6 +126,8 @@ No modules.
 | [kubectl_manifest.kiali_virtual_service](https://registry.terraform.io/providers/gavinbunney/kubectl/latest/docs/resources/manifest) | resource |
 | [kubectl_manifest.nodepool](https://registry.terraform.io/providers/gavinbunney/kubectl/latest/docs/resources/manifest) | resource |
 | [kubectl_manifest.prometheus_efs_storage_class](https://registry.terraform.io/providers/gavinbunney/kubectl/latest/docs/resources/manifest) | resource |
+| [kubectl_manifest.rollouts_gateway](https://registry.terraform.io/providers/gavinbunney/kubectl/latest/docs/resources/manifest) | resource |
+| [kubectl_manifest.rollouts_virtual_service](https://registry.terraform.io/providers/gavinbunney/kubectl/latest/docs/resources/manifest) | resource |
 | [kubectl_manifest.target_binding_80](https://registry.terraform.io/providers/gavinbunney/kubectl/latest/docs/resources/manifest) | resource |
 | [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
 | [aws_eip.eips](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/eip) | data source |
@@ -156,6 +161,8 @@ No modules.
 | <a name="input_addon_pod_identity_version"></a> [addon\_pod\_identity\_version](#input\_addon\_pod\_identity\_version) | POD identity addon version | `string` | `"v1.3.4-eksbuild.1"` | no |
 | <a name="input_addon_s3_csi_version"></a> [addon\_s3\_csi\_version](#input\_addon\_s3\_csi\_version) | S3 CIS addon version | `string` | `"v1.13.0-eksbuild.1"` | no |
 | <a name="input_api_public_access_cidrs"></a> [api\_public\_access\_cidrs](#input\_api\_public\_access\_cidrs) | List of CIDR blocks that can access the Amazon EKS public API server endpoint when enabled | `list(string)` | <pre>[<br/>  "0.0.0.0/0"<br/>]</pre> | no |
+| <a name="input_argo_rollouts_host"></a> [argo\_rollouts\_host](#input\_argo\_rollouts\_host) | Argo Rollouts host | `string` | n/a | yes |
+| <a name="input_argo_rollouts_version"></a> [argo\_rollouts\_version](#input\_argo\_rollouts\_version) | Argo Rollouts version | `string` | `"2.34.1"` | no |
 | <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | Common tags | `map(string)` | n/a | yes |
 | <a name="input_eks_oidc_thumbprint"></a> [eks\_oidc\_thumbprint](#input\_eks\_oidc\_thumbprint) | Thumbprint of Root CA for EKS OIDC | `string` | `"9e99a48a9960b14926bb7f3b02e22da2b0ab7280"` | no |
 | <a name="input_grafana_host"></a> [grafana\_host](#input\_grafana\_host) | Grafana host | `string` | n/a | yes |
@@ -164,7 +171,7 @@ No modules.
 | <a name="input_jaeger_host"></a> [jaeger\_host](#input\_jaeger\_host) | Jaeger host | `string` | n/a | yes |
 | <a name="input_k8s_version"></a> [k8s\_version](#input\_k8s\_version) | The kubernetes version | `string` | n/a | yes |
 | <a name="input_karpenter_capacity"></a> [karpenter\_capacity](#input\_karpenter\_capacity) | n/a | <pre>list(object({<br/>    name               = string<br/>    workload           = string<br/>    ami_family         = string<br/>    ami_ssm            = string<br/>    instance_family    = list(string)<br/>    instance_sizes     = list(string)<br/>    capacity_type      = list(string)<br/>    availability_zones = list(string)<br/>  }))</pre> | n/a | yes |
-| <a name="input_keda_version"></a> [keda\_version](#input\_keda\_version) | vThe Keda version | `string` | `"2.16.0"` | no |
+| <a name="input_keda_version"></a> [keda\_version](#input\_keda\_version) | The Keda version | `string` | `"2.16.0"` | no |
 | <a name="input_kiali_host"></a> [kiali\_host](#input\_kiali\_host) | Kiali host | `string` | n/a | yes |
 | <a name="input_kiali_version"></a> [kiali\_version](#input\_kiali\_version) | The Kiali version | `string` | `"2.5"` | no |
 | <a name="input_metrics_server_version"></a> [metrics\_server\_version](#input\_metrics\_server\_version) | The metric server version | `string` | `"7.2.16"` | no |

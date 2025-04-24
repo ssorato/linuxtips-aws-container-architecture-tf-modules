@@ -4,4 +4,4 @@
 
 | Module                                  | Description                                             |
 |-----------------------------------------|---------------------------------------------------------|
-| [eks-keda](eks-keda/README.md)          | Elastic Kubernetes Service - Keda                       |
+| [eks-argo](eks-argo/README.md)          | Elastic Kubernetes Service - Argo Rollouts              |
