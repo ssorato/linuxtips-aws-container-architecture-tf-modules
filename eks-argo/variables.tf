@@ -173,6 +173,17 @@ variable "kiali_version" {
 
 variable "keda_version" {
   type        = string
-  description = "vThe Keda version"
+  description = "The Keda version"
   default     = "2.16.0"
+}
+
+variable "argo_rollouts_version" {
+  type    = string
+  description = "Argo Rollouts version"
+  default = "2.34.1"
+}
+
+variable "argo_rollouts_host" {
+  type        = string
+  description = "Argo Rollouts host"
 }
