@@ -1,7 +1,7 @@
 <!-- BEGIN_TF_DOCS -->
 # Linuxtips course: Container architecture on AWS terraform modules
 
-Day 30: Elastic Kubernetes Service - Keda
+Day 31: Elastic Kubernetes Service - Keda
 
 ## Requirements
 
