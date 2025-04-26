@@ -43,3 +43,4 @@ Instructor: [Matheus Fidelis](https://linktr.ee/fidelissauro)
 | day_29 [eks-prometheus](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day29/eks-prometheus/README.md) | Elastic Kubernetes Service - kube-prometheus-stack |
 | day_30 [eks-istio](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day30/eks-istio/README.md) | Elastic Kubernetes Service - Istio Service Mesh |
 | day_31 [eks-keda](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day31/eks-keda/README.md) | Elastic Kubernetes Service - Keda |
+| day_32 [eks-keda](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day32/eks-argo/README.md) | Elastic Kubernetes Service - Argo Rollouts |
