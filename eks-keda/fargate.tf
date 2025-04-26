@@ -18,23 +18,24 @@ resource "aws_eks_fargate_profile" "karpenter" {
   )
 }
 
+# keda-operator on fargate profile is not able to get iam role so it's unable to GetQueueAttributes about sqs
 
-resource "aws_eks_fargate_profile" "keda" {
-  cluster_name         = aws_eks_cluster.main.name
-  fargate_profile_name = "keda"
+# resource "aws_eks_fargate_profile" "keda" {
+#   cluster_name         = aws_eks_cluster.main.name
+#   fargate_profile_name = "keda"
 
-  pod_execution_role_arn = aws_iam_role.fargate.arn
+#   pod_execution_role_arn = aws_iam_role.fargate.arn
 
-  subnet_ids = data.aws_ssm_parameter.pod_subnets[*].value
+#   subnet_ids = data.aws_ssm_parameter.pod_subnets[*].value
 
-  selector {
-    namespace = "keda"
-  }
+#   selector {
+#     namespace = "keda"
+#   }
 
-  tags = merge(
-    {
-      Name = format("fargate-keda-profile-%s", var.project_name)
-    },
-    var.common_tags
-  )
-}
+#   tags = merge(
+#     {
+#       Name = format("fargate-keda-profile-%s", var.project_name)
+#     },
+#     var.common_tags
+#   )
+# }

@@ -11,6 +11,7 @@ resource "helm_release" "keda" {
   depends_on = [
     aws_eks_cluster.main,
     helm_release.karpenter,
-    aws_eks_fargate_profile.keda
+    # keda-operator on fargate profile is not able to get iam role so it's unable to GetQueueAttributes about sqs. Review ...
+    # aws_eks_fargate_profile.keda
   ]
 }
