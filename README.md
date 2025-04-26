@@ -41,3 +41,5 @@ Instructor: [Matheus Fidelis](https://linktr.ee/fidelissauro)
 | day_27 [eks-ext-secrets](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day27/eks-ext-secrets/README.md) | Elastic Kubernetes Service - External Secrets with AWS Secrets Manager |
 | day_28 [eks-automode](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day28/eks-automode/README.md) | Elastic Kubernetes Service - Automode |
 | day_29 [eks-prometheus](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day29/eks-prometheus/README.md) | Elastic Kubernetes Service - kube-prometheus-stack |
+| day_30 [eks-istio](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day30/eks-istio/README.md) | Elastic Kubernetes Service - Istio Service Mesh |
+| day_31 [eks-keda](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day31/eks-keda/README.md) | Elastic Kubernetes Service - Keda |
