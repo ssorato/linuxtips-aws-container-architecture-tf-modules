@@ -40,7 +40,8 @@ spec:
 YAML
 
   depends_on = [
-    helm_release.istio_ingress
+    helm_release.istio_ingress,
+    helm_release.prometheus
   ]
 }
 
@@ -65,6 +66,7 @@ spec:
 YAML
 
   depends_on = [
-    helm_release.istio_ingress
+    helm_release.istio_ingress,
+    kubectl_manifest.grafana_gateway
   ]
 }
