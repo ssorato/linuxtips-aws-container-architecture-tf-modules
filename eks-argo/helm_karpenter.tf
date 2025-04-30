@@ -43,7 +43,7 @@ resource "helm_release" "karpenter" {
 
   set {
     name  = "controller.resources.requests.cpu"
-    value = "1"
+    value = "0.5"
   }
 
   set {
@@ -53,7 +53,7 @@ resource "helm_release" "karpenter" {
 
   set {
     name  = "controller.resources.limits.cpu"
-    value = "1"
+    value = "0.5"
   }
 
   set {

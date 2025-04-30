@@ -70,3 +70,15 @@ resource "aws_route53_record" "argo_rollouts" {
   ]
 }
 
+resource "aws_route53_record" "argo_cd" {
+  zone_id = var.route53.hosted_zone
+  name    = "${var.argocd_host}.${replace(var.route53.dns_name, "*.", "")}"
+  type    = "CNAME"
+  ttl     = "60"
+  records = [aws_lb.ingress.dns_name]
+
+  depends_on = [
+    helm_release.istio_ingress
+  ]
+}
+

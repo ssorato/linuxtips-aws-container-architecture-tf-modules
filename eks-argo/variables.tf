@@ -187,3 +187,8 @@ variable "argo_rollouts_host" {
   type        = string
   description = "Argo Rollouts host"
 }
+
+variable "argocd_host" {
+  type        = string
+  description = "Argo CD host"
+}

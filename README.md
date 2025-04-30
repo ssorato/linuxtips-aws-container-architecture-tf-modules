@@ -4,4 +4,4 @@
 
 | Module                                  | Description                                             |
 |-----------------------------------------|---------------------------------------------------------|
-| [eks-argo](eks-argo/README.md)          | Elastic Kubernetes Service - Argo Rollouts              |
+| [eks-argo](eks-argo/README.md)          | Elastic Kubernetes Service - Argo CD and ChartMuseum    |

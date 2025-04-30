@@ -15,3 +15,7 @@ output "k8s_token" {
 output "cluster_ca_certificate" {
   value = base64decode(aws_eks_cluster.main.certificate_authority.0.data)
 }
+
+output "s3_chartmuseum_id" {
+  value = aws_s3_bucket.chartmuseum.id
+}
