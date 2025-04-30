@@ -45,3 +45,4 @@ Instructor: [Matheus Fidelis](https://linktr.ee/fidelissauro)
 | day_31 [eks-keda](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day31/eks-keda/README.md) | Elastic Kubernetes Service - Keda |
 | day_32 [eks-argo](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day32/eks-argo/README.md) | Elastic Kubernetes Service - Argo Rollouts |
 | day_33 [eks-argo](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day32/eks-argo/README.md) | Elastic Kubernetes Service - Argo Rollouts |
+| day_34 [eks-argo](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day34/eks-argo/README.md) | Elastic Kubernetes Service - Argo CD and ChartMuseum |
