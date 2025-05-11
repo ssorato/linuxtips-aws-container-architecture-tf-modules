@@ -24,3 +24,16 @@ resource "aws_ssm_parameter" "cluster_02" {
     var.common_tags
   )
 }
+
+resource "aws_ssm_parameter" "acm_arn" {
+  type  = "String"
+  name  = "/${var.project_name}/acm/arn"
+  value = aws_acm_certificate.main[0].arn
+
+  tags = merge(
+    {
+      Name = "/${var.project_name}/acm/arn"
+    },
+    var.common_tags
+  )
+}
