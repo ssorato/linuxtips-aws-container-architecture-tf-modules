@@ -90,9 +90,9 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_cluster_scope"></a> [cluster\_scope](#input\_cluster\_scope) | The scope of the EKS cluster: can be generic, control-plane or observability | `string` | `"generic"` | no |
 | <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | Common tags | `map(string)` | n/a | yes |
 | <a name="input_eks_api_public_access_cidrs"></a> [eks\_api\_public\_access\_cidrs](#input\_eks\_api\_public\_access\_cidrs) | List of CIDR blocks that can access the Amazon EKS public API server endpoint when enabled | `list(string)` | <pre>[<br/>  "0.0.0.0/0"<br/>]</pre> | no |
+| <a name="input_enable_istio"></a> [enable\_istio](#input\_enable\_istio) | Enable Istio installation | `bool` | `true` | no |
 | <a name="input_istio_config"></a> [istio\_config](#input\_istio\_config) | Istio Ingress Controller configurations | <pre>object({<br/>    version       = string<br/>    min_replicas  = number<br/>    cpu_threshold = number<br/>  })</pre> | <pre>{<br/>  "cpu_threshold": 60,<br/>  "min_replicas": 3,<br/>  "version": "1.25.0"<br/>}</pre> | no |
 | <a name="input_istio_ssm_target_group"></a> [istio\_ssm\_target\_group](#input\_istio\_ssm\_target\_group) | The shared load balancer targer group from AWS SSM parameters | `string` | `""` | no |
 | <a name="input_k8s_version"></a> [k8s\_version](#input\_k8s\_version) | The kubernetes version | `string` | `"1.32"` | no |
@@ -107,5 +107,9 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_cluster_ca_certificate"></a> [cluster\_ca\_certificate](#output\_cluster\_ca\_certificate) | n/a |
+| <a name="output_eks_api_endpoint"></a> [eks\_api\_endpoint](#output\_eks\_api\_endpoint) | API server endpoint |
+| <a name="output_k8s_token"></a> [k8s\_token](#output\_k8s\_token) | n/a |
 <!-- END_TF_DOCS -->

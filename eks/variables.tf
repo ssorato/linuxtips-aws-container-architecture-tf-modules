@@ -77,7 +77,7 @@ variable "karpenter_capacity" {
 variable "enable_istio" {
   type        = bool
   description = "Enable Istio installation"
-  default = true
+  default     = true
 }
 
 variable "istio_config" {
