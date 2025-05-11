@@ -8,16 +8,6 @@ variable "project_name" {
   description = "The resource name sufix"
 }
 
-variable "cluster_scope" {
-  type        = string
-  description = "The scope of the EKS cluster: can be generic, control-plane or observability"
-  validation {
-    condition     = contains(["generic", "control-plane", "observability"], var.cluster_scope)
-    error_message = "Invalid scope, can be generic, control-plane or observability"
-  }
-  default = "generic"
-}
-
 variable "region" {
   type        = string
   description = "The AWS region"
@@ -82,6 +72,12 @@ variable "karpenter_capacity" {
     capacity_type      = list(string)
     availability_zones = list(string)
   }))
+}
+
+variable "enable_istio" {
+  type        = bool
+  description = "Enable Istio installation"
+  default = true
 }
 
 variable "istio_config" {

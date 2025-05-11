@@ -1,5 +1,5 @@
 resource "helm_release" "istio_base" {
-  count      = var.cluster_scope == "generic" ? 1 : 0
+  count      = var.enable_istio ? 1 : 0
   name       = "istio-base"
   chart      = "base"
   repository = "https://istio-release.storage.googleapis.com/charts"
@@ -16,7 +16,7 @@ resource "helm_release" "istio_base" {
 }
 
 resource "helm_release" "istiod" {
-  count      = var.cluster_scope == "generic" ? 1 : 0
+  count      = var.enable_istio ? 1 : 0
   name       = "istio"
   chart      = "istiod"
   repository = "https://istio-release.storage.googleapis.com/charts"
@@ -47,7 +47,7 @@ resource "helm_release" "istiod" {
 }
 
 resource "helm_release" "istio_ingress" {
-  count            = var.cluster_scope == "generic" ? 1 : 0
+  count            = var.enable_istio ? 1 : 0
   name             = "istio-ingressgateway"
   chart            = "gateway"
   repository       = "https://istio-release.storage.googleapis.com/charts"
@@ -78,7 +78,7 @@ resource "helm_release" "istio_ingress" {
 }
 
 resource "kubectl_manifest" "target_binding_80" {
-  count     = var.cluster_scope == "generic" ? 1 : 0
+  count     = var.enable_istio ? 1 : 0
   yaml_body = <<YAML
 apiVersion: elbv2.k8s.aws/v1beta1
 kind: TargetGroupBinding
@@ -89,7 +89,7 @@ spec:
   serviceRef:
     name: istio-ingressgateway
     port: 80
-  targetGroupARN: ${data.aws_ssm_parameter.tg.value}
+  targetGroupARN: ${data.aws_ssm_parameter.tg[0].value}
   targetType: instance
 YAML
   depends_on = [
@@ -101,7 +101,7 @@ YAML
 # Mock used to force envoy side-car to open the port and avoid drain on target group targets
 #
 resource "kubectl_manifest" "mock_gateway" {
-  count     = var.cluster_scope == "generic" ? 1 : 0
+  count     = var.enable_istio ? 1 : 0
   yaml_body = <<YAML
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
@@ -126,7 +126,7 @@ YAML
 
 
 resource "kubectl_manifest" "mock_virtual_service" {
-  count     = var.cluster_scope == "generic" ? 1 : 0
+  count     = var.enable_istio ? 1 : 0
   yaml_body = <<YAML
 apiVersion: networking.istio.io/v1
 kind: VirtualService

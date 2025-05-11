@@ -32,5 +32,6 @@ data "aws_ssm_parameter" "karpenter_ami" {
 }
 
 data "aws_ssm_parameter" "tg" {
+  count      = var.enable_istio ? 1 : 0
   name = var.istio_ssm_target_group
 }
