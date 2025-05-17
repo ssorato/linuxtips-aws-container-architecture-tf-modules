@@ -2,6 +2,9 @@ data "aws_ssm_parameter" "vpc" {
   name = var.ssm_vpc
 }
 
+data "aws_caller_identity" "current" {
+}
+
 data "aws_ssm_parameter" "lb_subnets" {
   count = length(var.ssm_public_subnets)
   name  = var.ssm_public_subnets[count.index]

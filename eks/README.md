@@ -109,7 +109,8 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_cluster_ca_certificate"></a> [cluster\_ca\_certificate](#output\_cluster\_ca\_certificate) | n/a |
+| <a name="output_cluster_ca_certificate"></a> [cluster\_ca\_certificate](#output\_cluster\_ca\_certificate) | The EKS API certificate |
+| <a name="output_cluster_name"></a> [cluster\_name](#output\_cluster\_name) | The EKS cluster name |
 | <a name="output_eks_api_endpoint"></a> [eks\_api\_endpoint](#output\_eks\_api\_endpoint) | API server endpoint |
-| <a name="output_k8s_token"></a> [k8s\_token](#output\_k8s\_token) | n/a |
+| <a name="output_k8s_token"></a> [k8s\_token](#output\_k8s\_token) | The EKS authentication token |
 <!-- END_TF_DOCS -->
