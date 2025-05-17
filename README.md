@@ -47,5 +47,5 @@ Instructor: [Matheus Fidelis](https://linktr.ee/fidelissauro)
 | day_33 [eks-argo](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day32/eks-argo/README.md) | Elastic Kubernetes Service - Argo Rollouts |
 | day_34 [eks-argo](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/tree/day34/eks-argo/README.md) | Elastic Kubernetes Service - Argo CD and ChartMuseum |
 | day_35 [eks](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/blob/day35/eks/README.md) | ArgoCD multiclusters management - EKS |
-| day_35 [eks](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/blob/day35/eks-control-plane/README.md) | ArgoCD multiclusters management - EKS control plane ( argo ) |
+| day_35 [eks-control-plane](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/blob/day35/eks-control-plane/README.md) | ArgoCD multiclusters management - EKS control plane ( argo ) |
 | day_35 [shared-load-balancer](https://github.com/ssorato/linuxtips-aws-container-architecture-tf-modules/blob/day35/shared-load-balancer/README.md) | ArgoCD multiclusters management - Shared load balancer |
