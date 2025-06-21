@@ -5,32 +5,32 @@ resource "helm_release" "alb_ingress_controller" {
   namespace        = "kube-system"
   create_namespace = true
 
-  set {
+  set = {
     name  = "clusterName"
     value = var.project_name
   }
 
-  set {
+  set = {
     name  = "serviceAccount.create"
     value = true
   }
 
-  set {
+  set = {
     name  = "serviceAccount.name"
     value = "aws-load-balancer-controller"
   }
 
-  set {
+  set = {
     name  = "serviceAccount.annotations.eks\\.amazonaws\\.com/role-arn"
     value = aws_iam_role.aws_lb_controller.arn
   }
 
-  set {
+  set = {
     name  = "region"
     value = var.region
   }
 
-  set {
+  set = {
     name  = "vpcId"
     value = data.aws_ssm_parameter.vpc.value
 
