@@ -26,20 +26,20 @@ resource "helm_release" "istiod" {
 
   version = var.istio_config.version
 
-  set {
-    name  = "sidecarInjectorWebhook.rewriteAppHTTPProbe"
-    value = "false"
-  }
-
-  set {
-    name  = "meshConfig.enableTracing"
-    value = "true"
-  }
-
-  set {
-    name  = "meshConfig.defaultConfig.tracing.zipkin.address"
-    value = "jaeger-collector.tracing.svc.cluster.local:9411"
-  }
+  set = [
+    {
+      name  = "sidecarInjectorWebhook.rewriteAppHTTPProbe"
+      value = "false"
+    },
+    {
+      name  = "meshConfig.enableTracing"
+      value = "true"
+    },
+    {
+      name  = "meshConfig.defaultConfig.tracing.zipkin.address"
+      value = "jaeger-collector.tracing.svc.cluster.local:9411"
+    }
+  ]
 
   depends_on = [
     helm_release.istio_base
@@ -56,20 +56,20 @@ resource "helm_release" "istio_ingress" {
 
   version = var.istio_config.version
 
-  set {
-    name  = "service.type"
-    value = "NodePort"
-  }
-
-  set {
-    name  = "autoscaling.minReplicas"
-    value = var.istio_config.min_replicas
-  }
-
-  set {
-    name  = "autoscaling.targetCPUUtilizationPercentage"
-    value = var.istio_config.cpu_threshold
-  }
+  set = [
+    {
+      name  = "service.type"
+      value = "NodePort"
+    },
+    {
+      name  = "autoscaling.minReplicas"
+      value = var.istio_config.min_replicas
+    },
+    {
+      name  = "autoscaling.targetCPUUtilizationPercentage"
+      value = var.istio_config.cpu_threshold
+    }
+  ]
 
   depends_on = [
     helm_release.istio_base,
