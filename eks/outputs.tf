@@ -17,3 +17,8 @@ output "cluster_name" {
   value       = aws_eks_cluster.main.name
   description = "The EKS cluster name"
 }
+
+output "k8s_version" {
+  value       = aws_eks_cluster.main.version
+  description = "The k8s version"
+}
