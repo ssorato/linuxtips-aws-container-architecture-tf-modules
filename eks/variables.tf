@@ -55,9 +55,9 @@ variable "node_group_temp" {
   description = "Temporary node group"
   default = {
     instances_size = ["t3a.medium"]
-    desired_size   = 2
-    max_size       = 2
-    min_size       = 2
+    desired_size   = 3
+    max_size       = 3
+    min_size       = 3
   }
 }
 
