@@ -39,7 +39,12 @@ spec:
       syncPolicy:
         syncOptions:
           - CreateNamespace=true
-        automated: {}             
+        automated: {}
+      ignoreDifferences:
+          - group: apiextensions.k8s.io
+            kind: CustomResourceDefinition
+            jsonPointers:
+              - /spec/preserveUnknownFields             
 YAML
 
   depends_on = [
